@@ -54,4 +54,52 @@ describe('Currying - is when a function does not take all its arguments up front
         expect(actual).toEqual('Fluffy is a tiny dragon that breathes lightning!');
     });
 
+    it('should provide an useful example -- A, non curried example', () => {
+        const dragons = [
+            {
+                name: 'Fluffy',
+                element: 'lightning'
+            },
+            {
+                name: 'Nomi',
+                element: 'lightning'
+            },
+            {
+                name: 'Karo',
+                element: 'fire'
+            }
+        ];
+
+        const hasElement = (element, obj) => element === obj.element;
+        const lightningDragons = dragons.filter(dragon => hasElement('lightning', dragon));
+
+        expect(lightningDragons.length).toEqual(2);
+        expect(lightningDragons[0].name).toEqual('Fluffy');
+        expect(lightningDragons[1].name).toEqual('Nomi');
+    });
+
+    it('should provide an useful example -- B, curried example', () => {
+        const dragons = [
+            {
+                name: 'Fluffy',
+                element: 'lightning'
+            },
+            {
+                name: 'Nomi',
+                element: 'lightning'
+            },
+            {
+                name: 'Karo',
+                element: 'fire'
+            }
+        ];
+
+        const hasElement = curry((element, obj) => element === obj.element);    // curried
+        const lightningDragons = dragons.filter(hasElement('lightning'));       // hasElement can be passed directly to filter since it will return a function that takes the itterator
+
+        expect(lightningDragons.length).toEqual(2);
+        expect(lightningDragons[0].name).toEqual('Fluffy');
+        expect(lightningDragons[1].name).toEqual('Nomi');
+    });
+
 });

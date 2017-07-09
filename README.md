@@ -9,7 +9,8 @@ http://www.phpied.com/3-ways-to-define-a-javascript-class/ , 2006
 
 ## modern-2017
 
-https://www.youtube.com/watch?v=hO7mzO83N1Q
+https://www.youtube.com/watch?v=hO7mzO83N1Q , Scott Allen  
+https://www.youtube.com/watch?v=iZLP4qOwY8I , funfunfunction curry
 
 ## jest
 
