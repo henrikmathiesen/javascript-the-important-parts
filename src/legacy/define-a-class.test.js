@@ -1,4 +1,4 @@
-describe('2015 - Define a class', () => {
+describe('Legacy - Define a class', () => {
 
     describe('Define a class using a function (javascript is a classless language, but the behavior can be simulated)', () => {
 
