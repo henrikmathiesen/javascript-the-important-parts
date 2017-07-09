@@ -10,3 +10,6 @@ https://addyosmani.com/resources/essentialjsdesignpatterns/book/ , 2015
 
 https://www.youtube.com/watch?v=hO7mzO83N1Q
 
+## jest
+
+We test features of jest. However tests for the rest of our studies will be in their respective folder.
