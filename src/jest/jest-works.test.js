@@ -1,4 +1,4 @@
-describe('jest should test our code in here (no babel needed for const)', () => {
+describe('jest should test our code in here (no babel needed yet!)', () => {
 
     it('can do a simple unit test', () => {
         expect(true).toEqual(true);
@@ -16,10 +16,19 @@ describe('jest should test our code in here (no babel needed for const)', () => 
         expect(typeof match === 'object').toEqual(true);
     });
 
+    it('supports ES6 features without additional plugins', () => {
+        const foo = [1, 2, 3];
+        const bar = [...foo, 4, 5, 6];
+        const baz = `Well the answer is ${1+1}`;
+
+        expect(bar).toEqual([1, 2, 3, 4, 5, 6]);
+        expect(baz).toEqual('Well the answer is 2');
+    });
+
     it('can test callback code in a reliable way', done => {
         // https://facebook.github.io/jest/docs/en/asynchronous.html#callbacks
 
-        const callback = data => { 
+        const callback = data => {
             expect(data).toEqual('bar');
             done(); // important
         };
