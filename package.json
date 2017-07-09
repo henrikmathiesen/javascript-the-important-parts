@@ -1,0 +1,15 @@
+{
+  "name": "javascript-the-important-parts",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrikmathiesen/javascript-the-important-parts.git"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "20.0.4"
+  }
+}
