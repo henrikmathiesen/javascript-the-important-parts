@@ -2,12 +2,12 @@
 
 Here we explore the JavaScript language.
 
-## design-patterns-2015
+## legacy
 
 https://addyosmani.com/resources/essentialjsdesignpatterns/book/ , 2015  
 http://www.phpied.com/3-ways-to-define-a-javascript-class/ , 2006
 
-## design-patterns-2017
+## modern-2017
 
 https://www.youtube.com/watch?v=hO7mzO83N1Q
 
