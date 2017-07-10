@@ -12,9 +12,10 @@ http://adripofjavascript.com/blog/drips/basic-inheritance-with-javascript-constr
 ## modern-2017
 
 https://www.youtube.com/watch?v=hO7mzO83N1Q , Scott Allen  
-https://www.youtube.com/watch?v=iZLP4qOwY8I , funfunfunction curry  
-https://www.youtube.com/watch?v=ImwrezYhw4w , funfunfunction factory functions  
-https://www.youtube.com/watch?v=CQqwU2Ixu-U , funfunfunction closures
+https://www.youtube.com/watch?v=iZLP4qOwY8I , funfunfunction Curry  
+https://www.youtube.com/watch?v=ImwrezYhw4w , funfunfunction Factory functions  
+https://www.youtube.com/watch?v=CQqwU2Ixu-U , funfunfunction Closures  
+https://www.youtube.com/watch?v=wfMtDGfHWpA , funfunfunction Composition over Inheritance
 
 ## jest
 

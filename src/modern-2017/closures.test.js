@@ -1,4 +1,4 @@
-describe('closures - the function body has access to variables that are defined outside the function', () => {
+describe('Closures - the function body has access to variables that are defined outside the function', () => {
 
     it('should understand closure through an example - A', () => {
         const me = 'Henke';
