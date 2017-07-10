@@ -6,7 +6,8 @@ Here we explore the JavaScript language.
 
 https://addyosmani.com/resources/essentialjsdesignpatterns/book/ , 2015  
 http://www.phpied.com/3-ways-to-define-a-javascript-class/ , 2006  
-https://content.pivotal.io/blog/javascript-constructors-prototypes-and-the-new-keyword , 2010
+https://content.pivotal.io/blog/javascript-constructors-prototypes-and-the-new-keyword , 2010  
+http://adripofjavascript.com/blog/drips/basic-inheritance-with-javascript-constructors.html , 2015
 
 ## modern-2017
 
