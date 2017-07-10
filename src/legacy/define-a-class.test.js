@@ -39,6 +39,8 @@ describe('Legacy - Define a class', () => {
             expect(apple02.getInfo().type).toEqual('cedar');
             expect(apple02.getInfo().constructed).toEqual(1);
             expect(apple02.getInfo().thisConstructed).toEqual(1);
+
+            expect(typeof apple01 === 'object').toEqual(true);
         });
 
         it('creates a class and instantiates it using the new keyword (getInfo is NOT recreated every time we create a new object, which is more efficient)', () => {
