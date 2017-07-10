@@ -33,6 +33,13 @@ describe('Legacy - constructor pattern', () => {
 
         expect(apple01.color).toEqual('red');
         expect(apple02.color).toEqual('red');
+
+        apple.color = 'blue';
+        expect(apple02.color).toEqual('blue');
+
+        // this doesnt work
+        Apple.prototype.color = 'pink';
+        expect(apple01.color).not.toEqual('pink');
     });
 
     it('should understand that there are 3 ways to assign keys and values to an object', () => {
