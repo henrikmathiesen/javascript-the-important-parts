@@ -13,7 +13,8 @@ http://adripofjavascript.com/blog/drips/basic-inheritance-with-javascript-constr
 
 https://www.youtube.com/watch?v=hO7mzO83N1Q , Scott Allen  
 https://www.youtube.com/watch?v=iZLP4qOwY8I , funfunfunction curry  
-https://www.youtube.com/watch?v=ImwrezYhw4w , funfunfunction factory functions
+https://www.youtube.com/watch?v=ImwrezYhw4w , funfunfunction factory functions  
+https://www.youtube.com/watch?v=CQqwU2Ixu-U , funfunfunction closures
 
 ## jest
 
