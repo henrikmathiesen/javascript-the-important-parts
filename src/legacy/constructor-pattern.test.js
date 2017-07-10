@@ -15,8 +15,11 @@ describe('Legacy - constructor pattern', () => {
     it('should know that Object.create inherits from the object passed in', () => {
         const newObject01 = { name: 'bar' };
         const newObject02 = Object.create(newObject01);
+        newObject02.age = 50;
 
         expect(newObject02.name).toEqual('bar');
+        expect(newObject02.age).toEqual(50);
+        expect(newObject01.age).toEqual(undefined);
     });
 
     it('should understand Object.create vs new, there is an object inheritence (in javascript objects inherits from objects)', () => {
