@@ -40,4 +40,6 @@ describe('bind and this', () => {
         expect(talkFunction()).toEqual('woff');
     });
 
+    // this is context sensitive
+
 });
