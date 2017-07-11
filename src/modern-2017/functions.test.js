@@ -325,9 +325,15 @@ describe('functions', () => {
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
     });
 
-    describe('function vs method', () => {
+    /*
+        # Function vs Method
+            We could say that a function decleration is a function and a function expression is also a function
+            But a function expression attached to an object property is a method, an object / instance method
+            Though keep in mind that a function decleration on its own will be part of the window object
 
-    });
+            Dont worry about it.
+            https://john-dugan.com/javascript-functions-vs-methods/
+    */
 
     describe('IIFE (Immediately Invoked Function Expression)', () => {
         it('can be done like this', () => {
