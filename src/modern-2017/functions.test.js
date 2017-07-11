@@ -286,6 +286,38 @@ describe('functions', () => {
                 expect(bar.func()).toEqual({});
             });
 
+            it('should know that bind this is ignored for arrow functions', () => {
+                const bar = {
+                    num: 0,
+                    func: () => {
+                        return this;
+                    }
+                };
+
+                expect(bar.func.bind(bar)()).toEqual({});
+            });
+
+            it('should also recap bind, rebind this (null does nothing?), can send arguments, returns a new function', () => {
+                function func(name) {
+                    return name;
+                }
+
+                expect(func.bind(null, 'adam')()).toEqual('adam');
+                expect(func.bind(null)('adam')).toEqual('adam');
+            });
+
+            /*
+                # Regarding call and apply
+                    Note: While the syntax of this function is almost identical to that of apply(), 
+                    the fundamental difference is that call() accepts an argument list, while apply() 
+                    accepts a single array of arguments.
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
+            */
+
+
+            // strict mode rules with regard to this are ignored for arrow functions
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
         });
 
 
@@ -298,7 +330,15 @@ describe('functions', () => {
     });
 
     describe('IIFE (Immediately Invoked Function Expression)', () => {
+        it('can be done like this', () => {
+            let check = 0;
+            
+            (function (n) { 
+                check = n;
+            })(1);
 
+            expect(check).toEqual(1);
+        });
     });
 
 });
