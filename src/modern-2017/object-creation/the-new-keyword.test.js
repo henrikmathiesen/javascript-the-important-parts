@@ -21,6 +21,8 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
         // It seems like for constructor functions we have to use the prototype property
         // For objects we have to use Object.setPrototypeOf (see prototype.test.js)
 
+        // This will however work Object.setPrototypeOf(Person.prototype, test);
+
         const crockford = new Person('semicolons!');
         expect(crockford.talk()).toEqual('I say semicolons!');
 
@@ -43,12 +45,41 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
 
         // This is what new does
         // - it creates a new empty object
-        // - it will look at Person object:s (Person function is treated as an object) prototype and set it as prototype of the new empty object
+        // - it will look at Person:s prototype property (functions have these, functions are special objects) and set it as prototype of the new empty object
         // - it will call the Person function (called constructor function) with the new object assigned to the this variable
         // - it will return the new object
     });
 
-    it('should understand how to manually build the new functionality', () => { 
-        // TODO
+    it('should understand how to manually build the new functionality (we call new spawn here)', () => {
+        function Person(saying) {
+            this.saying = saying;
+
+            // dont do this
+            // return {
+            //     dumb: true
+            // }
+        }
+
+        Person.prototype.talk = function () {
+            return 'I say ' + this.saying;
+        };
+
+        // this is our own new functionality
+        function spawn(constructor) {
+            const obj = {};                                             // it creates an empty object
+            Object.setPrototypeOf(obj, constructor.prototype);          // it takes the prototype of the constructor function and set as prototype for the new empty object
+            const argsArray = Array.prototype.slice.apply(arguments);   // middle step, convert arguments object to a proper array
+            return constructor.apply(obj, argsArray.slice(1)) || obj    // it calls the constructor function (apply), with the new object assigned to the this variable and passed in arguments
+                                                                        // it returns the constructor return (if it returns something, which it really shouldnt, bad practice)
+                                                                        // or it returns the object
+        }
+
+        const crockford = spawn(Person, 'semicolons!');
+        expect(crockford.talk()).toEqual('I say semicolons!');
+        expect(crockford.saying).toEqual('semicolons!');
+
+        const harry = spawn(Person, 'make my day');
+        expect(harry.talk()).toEqual('I say make my day');
+        expect(harry.saying).toEqual('make my day');
     });
 });
