@@ -60,6 +60,7 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
             // }
         }
 
+        // the prototype property only exists on functions, and they exists because we could use functions as constructors
         Person.prototype.talk = function () {
             return 'I say ' + this.saying;
         };
