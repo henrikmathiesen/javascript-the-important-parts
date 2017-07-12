@@ -47,7 +47,7 @@ describe('Legacy - Define a class', () => {
             function Apple(type) {
                 const _private = 'implementation detail';
                 let _constructed = 0;
-                _constructed++;
+                _constructed +=1;
 
                 this.constructed = _constructed;
                 this.type = type;

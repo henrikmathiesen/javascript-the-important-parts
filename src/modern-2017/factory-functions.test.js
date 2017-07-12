@@ -11,7 +11,9 @@ describe('Factory functions creates objects and return them, can be used instead
 
         class Dog {
             constructor() {
+                this.workCount = 0;
                 this.sound = 'woof';
+                // this.setSound = this.setSound.bind(this); this is another way to solve it and prefered over A
             }
 
             talk() {
@@ -20,6 +22,11 @@ describe('Factory functions creates objects and return them, can be used instead
 
             setSound() {
                 this.sound = 'woof2';
+            }
+
+            job() {
+                this.workCount += 1;
+                return 'working ' + this.workCount + ' times';
             }
         }
 
@@ -61,7 +68,7 @@ describe('Factory functions creates objects and return them, can be used instead
             expect(sniffles.talk()).toEqual('woof2'); // new sound HAS been set since we wrapped setSound in a function
         });
 
-        it('should also relies that this.sound is not a private member of the class', () => { 
+        it('should also relies that this.sound is not a private member of the class', () => {
             const sniffles = new Dog();
             expect(sniffles.talk()).toEqual('woof');
 
@@ -72,14 +79,41 @@ describe('Factory functions creates objects and return them, can be used instead
             // https://stackoverflow.com/questions/22156326/private-properties-in-javascript-es6-classes
         });
 
+        it('should persist the workcount variable', () => {
+            const dog01 = new Dog();
+            const dog02 = new Dog();
+
+            expect(dog01.job()).toEqual('working 1 times');
+            expect(dog01.job()).toEqual('working 2 times');
+            expect(dog02.job()).toEqual('working 1 times');
+        });
+
+        it('should persist the workcount variable in an ES5 class also', () => {
+            function Dog() {
+                this.workCount = 0;
+            }
+
+            Dog.prototype.job = function () {
+                this.workCount += 1;
+                return 'working ' + this.workCount + ' times';
+            };
+
+            const dog01 = new Dog();
+            const dog02 = new Dog();
+
+            expect(dog01.job()).toEqual('working 1 times');
+            expect(dog01.job()).toEqual('working 2 times');
+            expect(dog02.job()).toEqual('working 1 times');
+        });
+
     });
 
     describe('We should then look at factory functions', () => {
 
         it('should work as expected', () => {
             const dog = () => {
-                let _sound = 'woof';
-                let factory = {};
+                let _sound = 'woof';    // _sound is truly private to the dog function
+                const factory = {};
 
                 factory.talk = () => {
                     return _sound;      // talk has access to sound because of closures
@@ -104,7 +138,27 @@ describe('Factory functions creates objects and return them, can be used instead
             expect(sniffles.talk()).toEqual('woof2'); // it just works, because we do not use the this keyword
         });
 
-        // also _sound is truly private to the dog function
+        it('should have access to outer variable and outer variable will persist for the object', () => {
+            const worker = () => {
+                let _workCount = 0;
+                const factory = {};
+
+                factory.job = () => {
+                    _workCount += 1;
+                    return 'working ' + _workCount + ' times';
+                };
+
+                return factory;
+            };
+
+            const worker01 = worker();
+            const worker02 = worker();
+
+            expect(worker01.job()).toEqual('working 1 times');
+            expect(worker01.job()).toEqual('working 2 times');
+            expect(worker02.job()).toEqual('working 1 times');
+        });
 
     });
+
 });
