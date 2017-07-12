@@ -33,7 +33,7 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
             this.saying = saying;
         }
 
-        Person.prototype.talk = function () { 
+        Person.prototype.talk = function () {
             return 'I say ' + this.saying;
         };
 
@@ -46,5 +46,9 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
         // - it will look at Person object:s (Person function is treated as an object) prototype and set it as prototype of the new empty object
         // - it will call the Person function (called constructor function) with the new object assigned to the this variable
         // - it will return the new object
+    });
+
+    it('should understand how to manually build the new functionality', () => { 
+        // TODO
     });
 });
