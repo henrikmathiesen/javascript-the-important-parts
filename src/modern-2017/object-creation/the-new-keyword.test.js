@@ -81,5 +81,8 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
         const harry = spawn(Person, 'make my day');
         expect(harry.talk()).toEqual('I say make my day');
         expect(harry.saying).toEqual('make my day');
+
+        expect(crockford instanceof Person).toEqual(true);                  // crockford is an instance of person since the prototype of its constructor function is its prototype
+        expect(Object.getPrototypeOf(crockford)).toBe(Person.prototype);    // as we can see here, inspecting crockford:s __proto__
     });
 });

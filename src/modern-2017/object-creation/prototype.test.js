@@ -43,9 +43,9 @@ describe('Prototype - the class keyword in ES6 is just a thin layer on top of pr
             sound: 'grawl'
         };
 
-        Object.setPrototypeOf(cat, animal);
-        Object.setPrototypeOf(dog, animal);
-        Object.setPrototypeOf(prarieDog, dog);
+        Object.setPrototypeOf(cat, animal);                     // set the prototype of cat to be animal
+        Object.setPrototypeOf(dog, animal);                     // set the prototype of dog to be animal
+        Object.setPrototypeOf(prarieDog, dog);                  // set the prototype of prarieDog to be dog
 
         expect(prarieDog.talk).toBeDefined();
         expect(prarieDog.talk()).toEqual('grawl');
@@ -62,6 +62,8 @@ describe('Prototype - the class keyword in ES6 is just a thin layer on top of pr
 
         expect(Object.getPrototypeOf(prarieDog)).toBe(dog);     // a more official way to get to an objects prototype
         expect(Object.getPrototypeOf(dog)).toBe(animal);
+
+        // expect(prarieDog instanceof dog).toEqual(true);      even though prarieDog delegate to its prototype dog, it is not an instance of dog, since dog is not callable
     });
 
 });
