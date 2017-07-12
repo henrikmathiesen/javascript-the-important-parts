@@ -50,7 +50,7 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
         // - it will return the new object
     });
 
-    it('should understand how to manually build the new functionality (we call new spawn here)', () => {
+    it('should understand how to manually build the new functionality (we name new spawn here)', () => {
         function Person(saying) {
             this.saying = saying;
 
@@ -71,8 +71,8 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
             Object.setPrototypeOf(obj, constructor.prototype);          // it takes the prototype of the constructor function and set as prototype for the new empty object
             const argsArray = Array.prototype.slice.apply(arguments);   // middle step, convert arguments object to a proper array
             return constructor.apply(obj, argsArray.slice(1)) || obj    // it calls the constructor function (apply), with the new object assigned to the this variable and passed in arguments
-            // it returns the constructor return (if it returns something, which it really shouldnt, bad practice)
-            // or it returns the object
+                                                                        // it returns the constructor return (if it returns something, which it really shouldnt, bad practice)
+                                                                        // or it returns the object
         }
 
         const crockford = spawn(Person, 'semicolons!');
@@ -105,7 +105,7 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
 
         // they do have a __proto__ property
         expect(obj.__proto__).toBeDefined();
-        
+
         // if object is not set up to delegate to another object, it will delegate to ("base")Object:s prototype
         expect(obj.__proto__ === Object.prototype).toEqual(true);
 
