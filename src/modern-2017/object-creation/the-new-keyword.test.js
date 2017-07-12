@@ -10,6 +10,14 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
             return 'I say ' + this.saying;
         };
 
+        // we can have a static method also
+        Person.staticMethod = function () {
+            return {
+                text: 'Apples are tasty',
+                saying: this.saying // this is undefined here, but in a browser this would point to window (https://stackoverflow.com/questions/133973/how-does-this-keyword-work-within-a-function)
+            }
+        };
+
         // You would think that this also would work, but it does not
         // const test = {
         //     talk: function () {
@@ -28,6 +36,9 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
 
         const foo = new Person('bar');
         expect(foo.talk()).toEqual('I say bar');
+
+        expect(Person.staticMethod().text).toEqual('Apples are tasty');
+        expect(Person.staticMethod().saying).toEqual(undefined);
     });
 
     it('should understand what happens when we call new', () => {
@@ -71,8 +82,8 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
             Object.setPrototypeOf(obj, constructor.prototype);          // it takes the prototype of the constructor function and set as prototype for the new empty object
             const argsArray = Array.prototype.slice.apply(arguments);   // middle step, convert arguments object to a proper array
             return constructor.apply(obj, argsArray.slice(1)) || obj    // it calls the constructor function (apply), with the new object assigned to the this variable and passed in arguments
-                                                                        // it returns the constructor return (if it returns something, which it really shouldnt, bad practice)
-                                                                        // or it returns the object
+            // it returns the constructor return (if it returns something, which it really shouldnt, bad practice)
+            // or it returns the object
         }
 
         const crockford = spawn(Person, 'semicolons!');

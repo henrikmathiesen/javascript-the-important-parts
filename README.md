@@ -13,12 +13,10 @@ http://rmurphey.com/blog/2009/10/15/using-objects-to-organize-your-code , 2009
 ## modern-2017
 
 https://www.youtube.com/watch?v=hO7mzO83N1Q , Scott Allen  
-https://www.youtube.com/watch?v=iZLP4qOwY8I , funfunfunction Curry  
 https://www.youtube.com/watch?v=ImwrezYhw4w , funfunfunction Factory functions  
-https://www.youtube.com/watch?v=CQqwU2Ixu-U , funfunfunction Closures  
 https://www.youtube.com/watch?v=wfMtDGfHWpA , funfunfunction Composition over Inheritance  
-https://www.youtube.com/watch?v=BMUiFMZr7vk , funfunfunction Higher-order Functions
 https://www.youtube.com/playlist?list=PL0zVEGEvSaeHBZFy6Q8731rcwk0Gtuxub , funfunfunction Object Creation in JavaScript Playlist  
+https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84 , funfunfunction Functional programming in JavaScript Playlist
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function  
