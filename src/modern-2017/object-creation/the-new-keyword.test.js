@@ -111,6 +111,9 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
 
         // ("base")Object:s prototype is an empty object
         expect(Object.prototype).toEqual({});
+
+        // and since the ("base")Object has a prototype property, it means that it is a function
+        expect(typeof Object === 'function').toEqual(true);
     });
 
 
