@@ -16,6 +16,7 @@ describe('Prototype - the class keyword in ES6 is just a thin layer on top of pr
         expect(cat.talk).not.toBeDefined();
 
         Object.setPrototypeOf(cat, animal); // set the prototype of cat to be animal
+        // cat.prototype = animal;          // we can not set it like this, even though that would have made sence
 
         // The javascript enginge is first looking if cat has a talk property, if not it looks in its prototype chain and finds it on animal
         // The talk functionality is delegated to the animal, this still points to cat
@@ -56,8 +57,11 @@ describe('Prototype - the class keyword in ES6 is just a thin layer on top of pr
 
         expect(prarieDog.talk()).toEqual('GRAWL');
 
-        expect(prarieDog.__proto__).toBe(dog);      // prarieDog can delegate to dog because dog is its prototype
-        expect(dog.__proto__).toBe(animal);         // dog can delegate to animal because animal is its prototype
+        expect(prarieDog.__proto__).toBe(dog);                  // prarieDog can delegate to dog because dog is its prototype
+        expect(dog.__proto__).toBe(animal);                     // dog can delegate to animal because animal is its prototype
+
+        expect(Object.getPrototypeOf(prarieDog)).toBe(dog);     // a more official way to get to an objects prototype
+        expect(Object.getPrototypeOf(dog)).toBe(animal);
     });
 
 });
