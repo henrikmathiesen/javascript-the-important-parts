@@ -50,4 +50,48 @@ describe('Object.create is a static method on the Object prototype, it creates a
         expect(dog.isPrototypeOf(prarieDog)).toEqual(true);
     });
 
+    it('should understand how to manually build the Object.create functionality', () => {
+        // this is our own Object.create functionality
+        // however the native implementation is more perfomant ...
+        function objectCreate(proto) {
+            const obj = {};
+            Object.setPrototypeOf(obj, proto);
+            return obj;
+        }
+
+        const animal = {
+            talk: function () {
+                return this.sound;
+            }
+        };
+
+        const dog = objectCreate(animal);
+        dog.sound = 'woff';
+
+        const prarieDog = objectCreate(dog);
+        prarieDog.sound = 'grawl';
+
+        expect(prarieDog.talk()).toEqual('grawl');
+    });
+
+    it('should get a feel for a more realistic example of using Object.create', () => {
+        const animal = {
+            init: function (sound) {
+                this.sound = sound;
+                // and a lot of other stuff perhaps ...
+            },
+            talk: function () {
+                return this.sound;
+            }
+        };
+
+        const dog = Object.create(animal);
+        dog.init('woff');
+
+        const prarieDog = Object.create(dog);
+        prarieDog.init('grawl');
+
+        expect(prarieDog.talk()).toEqual('grawl');
+    });
+
 });
