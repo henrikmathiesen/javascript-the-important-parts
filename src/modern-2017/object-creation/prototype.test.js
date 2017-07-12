@@ -60,7 +60,7 @@ describe('Prototype - the class keyword in ES6 is just a thin layer on top of pr
         expect(prarieDog.__proto__).toBe(dog);                  // prarieDog can delegate to dog because dog is its prototype
         expect(dog.__proto__).toBe(animal);                     // dog can delegate to animal because animal is its prototype
 
-        expect(Object.getPrototypeOf(prarieDog)).toBe(dog);     // a more official way to get to an objects prototype
+        expect(Object.getPrototypeOf(prarieDog)).toBe(dog);     // a more official way to get to an object:s prototype
         expect(Object.getPrototypeOf(dog)).toBe(animal);
 
         // expect(prarieDog instanceof dog).toEqual(true);      even though prarieDog delegate to its prototype dog, it is not an instance of dog, since dog is not callable

@@ -98,13 +98,22 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
         // functions also has a __proto__ , dont know what its use case is ...
         expect(typeof func.__proto__ === 'function').toEqual(true);
 
-        const obj = {};
+        // can also use this expression to see the same thing
+        expect(typeof Object.getPrototypeOf(func) === 'function').toEqual(true);
 
-        // objects does not have a prototype object
+        const obj = {};
+        const child = {};
+        Object.setPrototypeOf(child, obj);
+
+        // objects do not have a prototype property
         expect(obj.prototype).not.toBeDefined();
+        expect(child.prototype).not.toBeDefined();
 
         // they do have a __proto__ property
         expect(obj.__proto__).toBeDefined();
+
+        // they also have this way of seeing the prototype
+        expect(Object.getPrototypeOf(child)).toBe(obj);
 
         // if object is not set up to delegate to another object, it will delegate to ("base")Object:s prototype
         expect(obj.__proto__ === Object.prototype).toEqual(true);
