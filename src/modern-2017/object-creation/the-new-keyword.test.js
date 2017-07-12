@@ -71,8 +71,8 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
             Object.setPrototypeOf(obj, constructor.prototype);          // it takes the prototype of the constructor function and set as prototype for the new empty object
             const argsArray = Array.prototype.slice.apply(arguments);   // middle step, convert arguments object to a proper array
             return constructor.apply(obj, argsArray.slice(1)) || obj    // it calls the constructor function (apply), with the new object assigned to the this variable and passed in arguments
-                                                                        // it returns the constructor return (if it returns something, which it really shouldnt, bad practice)
-                                                                        // or it returns the object
+            // it returns the constructor return (if it returns something, which it really shouldnt, bad practice)
+            // or it returns the object
         }
 
         const crockford = spawn(Person, 'semicolons!');
@@ -86,4 +86,33 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
         expect(crockford instanceof Person).toEqual(true);                  // crockford is an instance of person since the prototype of its constructor function is its prototype
         expect(Object.getPrototypeOf(crockford)).toBe(Person.prototype);    // as we can see here, inspecting crockford:s __proto__
     });
+
+    it('should understand a bit more about prototype and __proto__', () => {
+        function func() {
+
+        }
+
+        // the prototype property only exists on functions, and they exists because we could use functions as constructors
+        expect(typeof func.prototype === 'object').toEqual(true);
+
+        // functions also has a __proto__ , dont know what its use case is ...
+        expect(typeof func.__proto__ === 'function').toEqual(true);
+
+        const obj = {};
+
+        // objects does not have a prototype object
+        expect(obj.prototype).not.toBeDefined();
+
+        // they do have a __proto__ property
+        expect(obj.__proto__).toBeDefined();
+        
+        // if object is not set up to delegate to another object, it will delegate to ("base")Object:s prototype
+        expect(obj.__proto__ === Object.prototype).toEqual(true);
+
+        // ("base")Object:s prototype is an empty object
+        expect(Object.prototype).toEqual({});
+    });
+
+
+    // clear as the july sky ;)
 });
