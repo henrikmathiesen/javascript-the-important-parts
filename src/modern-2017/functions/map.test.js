@@ -25,7 +25,7 @@ describe('functions - map, just like filter it is a higher order function', () =
         expect(animals[0].type).toBeDefined();
     });
 
-    it('should know that it is a nice little syntax', () => { 
+    it('should know that it is a nice little syntax', () => {
         const names = animals.map(animal => `${animal.name} is a ${animal.type}`);
         expect(names[0]).toEqual('Fluffy is a rabbit');
     });
