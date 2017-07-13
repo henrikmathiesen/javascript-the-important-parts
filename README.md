@@ -24,6 +24,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arro
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function  
 https://john-dugan.com/javascript-functions-vs-methods/
 
+https://stackoverflow.com/questions/7137397/module-exports-vs-exports-in-node-js  
+http://www.hacksparrow.com/node-js-exports-vs-module-exports.html
+
 
 ## jest
 
