@@ -1,5 +1,9 @@
 var obAccordian = {
 
+    // TODO: check cant find selector, dom/passed in
+    // TODO: disect
+    // TODO: design
+
     config: {
         container: $('.js-ob-accordian')
     },
