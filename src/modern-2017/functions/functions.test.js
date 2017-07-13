@@ -92,7 +92,7 @@ describe('functions', () => {
         // function expressions are ok to declare inside if statements, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
     });
 
-    describe('arrow functions has a shortes syntax than function expressions and does not bind its own this, they cannot be used as constructors', () => {
+    describe('arrow functions - they have a shortes syntax than function expressions and does not bind its own this, they cannot be used as constructors', () => {
         it('can not have a name and is not hoisted', () => {
             const name = (x, y) => {
 

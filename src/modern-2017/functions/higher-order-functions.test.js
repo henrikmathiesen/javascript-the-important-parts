@@ -38,6 +38,7 @@ describe('Higher-order functions', () => {
     it('filters out the dogs - should know that passing functions into other functions is good for composition', () => {
         const dogs = animals.filter(animal => animal.type === 'dog');
         expect(dogs.length).toEqual(2);
+        expect(animals.length).toEqual(3); // original array is left alone
 
         // filter is going to loop through every item in the array, and call the callback function passing it in
         // The callback function is returning a boolean, this tells filter what should be included in the dogs array
