@@ -1,6 +1,3 @@
-// TODO
-// Also https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
-
 describe('ES6 promises', () => {
 
     describe('first, lets look at callbacks', () => {
