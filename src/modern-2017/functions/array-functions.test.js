@@ -35,6 +35,36 @@ describe('functions - array functions', () => {
             expect(names[0]).toEqual('Fluffy is a rabbit');
         });
 
+        it('should know its flexibility', () => {
+            // Lets say we want a function that incriments a number or numbers in an array -- this works but is a bit messy
+            const increment = (value) => {
+                if (Array.isArray(value)) {
+                    const newArray = [];
+                    for (let i = 0; i < value.length; i++) {
+                        newArray.push(value[i] + 1);
+                    }
+
+                    return newArray;
+                }
+                else {
+                    return value + 1;
+                }
+            };
+
+            expect(increment(1)).toEqual(2);
+            expect(increment([1, 2])).toEqual([2, 3]);
+            // 517 characters code
+
+            // Lets do it this way
+            const incrementToo = (value) => { 
+                return value + 1;
+            };
+
+            expect(incrementToo(1)).toEqual(2);
+            expect([1,2].map(incrementToo)).toEqual([2, 3]);
+            // 198 characters code
+        });
+
     });
 
     describe('reduce, just like filter it is a higher order function, it is the multi tool of array transformations', () => {
