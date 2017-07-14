@@ -59,13 +59,13 @@ describe('ES6 promises', () => {
             };
 
             const loadSomethingError = (error) => {
-                // console.log(error);
+                // console.log(error.message);
                 expect(error.message).toEqual('it failed');
                 done();
             };
 
             const loadSomethingElseError = (error) => {
-                // console.log(error);
+                // console.log(error.message);
                 expect(error.message).toEqual('it failed');
                 done();
             };
@@ -116,6 +116,7 @@ describe('ES6 promises', () => {
             //         // got the data
             //     })
             //     .catch((error) => {
+            //         // console.log(error.message);
             //         // one error handler for two async functions
             //     })
 
@@ -131,13 +132,14 @@ describe('ES6 promises', () => {
             //     .then((dataCollection) => { 
             //         // got data from both methods
             //     })
-            //     .catch(() => { 
+            //     .catch((error) => { 
+            //         // console.log(error.message);
             //         // one error handler for two async functions
             //     });
 
             // we can do this instead
 
-            const promiseAll = () => { 
+            const promiseAll = () => {
                 return Promise.all([
                     loadSomething(),
                     loadSomethingElse()
