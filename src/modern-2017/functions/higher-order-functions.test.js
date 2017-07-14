@@ -45,7 +45,7 @@ describe('Higher-order functions', () => {
         // This version of filters out dogs is much smaller then previous version, because the looping is done inside filter
     });
 
-    it('filters out dogs, with a custom filter', () => {
+    it('filters out dogs, with our own implementation of a filter', () => {
         const myFilter = function (callback) { // can not use arrow function since we loose this pointer
             const items = [];
 
