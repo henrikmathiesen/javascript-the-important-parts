@@ -35,6 +35,25 @@ describe('functions - array functions', () => {
             expect(names[0]).toEqual('Fluffy is a rabbit');
         });
 
+        it('should know that they are chainable (because they return a new array)', () => {
+            const dragons = [
+                {
+                    name: 'Fluffy',
+                    age: 108
+                },
+                {
+                    name: 'Tiamat',
+                    age: 211
+                }
+            ];
+
+            const dragonNamesLength = dragons
+                .map(dragon => dragon.name)
+                .map(name => name.length);
+
+            expect(dragonNamesLength).toEqual([6,6]);
+        });
+
         it('should know its flexibility', () => {
             // Lets say we want a function that incriments a number or numbers in an array -- this works but is a bit messy
             const increment = (value) => {
@@ -56,12 +75,12 @@ describe('functions - array functions', () => {
             // 517 characters code
 
             // Lets do it this way
-            const incrementToo = (value) => { 
+            const incrementToo = (value) => {
                 return value + 1;
             };
 
             expect(incrementToo(1)).toEqual(2);
-            expect([1,2].map(incrementToo)).toEqual([2, 3]);
+            expect([1, 2].map(incrementToo)).toEqual([2, 3]);
             // 198 characters code
         });
 
