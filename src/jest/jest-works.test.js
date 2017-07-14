@@ -21,7 +21,7 @@ describe('jest should test our code in here (no babel needed yet!)', () => {
     it('supports ES6 features without additional plugins', () => {
         const foo = [1, 2, 3];
         const bar = [...foo, 4, 5, 6];
-        const baz = `Well the answer is ${1+1}`;
+        const baz = `Well the answer is ${1 + 1}`;
         const person01 = new Person('Adam');
         const person02 = new Person('Bertil');
 
@@ -47,5 +47,21 @@ describe('jest should test our code in here (no babel needed yet!)', () => {
         doWork(callback);
     });
 
-    // TODO: promises: https://facebook.github.io/jest/docs/en/asynchronous.html#promises
+    it('can test promises in a reliable way', () => {
+        const seeYouLater = () => {
+            return new Promise((resolve, reject) => {
+                const something = true;
+                if (something) {
+                    resolve(something);
+                }
+                else {
+                    reject('error');
+                }
+            });
+        };
+
+        expect.assertions(1); // this is needed according to docs, and should match the number of expects
+        return expect(seeYouLater()).resolves.toBe(true);       // should return the expect according to docs
+        //return expect(seeYouLater()).rejects.toBe('error');   // can test for rejection also
+    });
 });

@@ -75,7 +75,9 @@ describe('Recursion - when a function calls itself until it doesnt', () => {
             return node;
         };
 
-        console.log(JSON.stringify(makeTree(categories, null), null, 2));
+        // We test it visually in the console
+        //console.log(JSON.stringify(makeTree(categories, null), null, 2));
+        expect(typeof makeTree(categories, null) === 'object');
     });
 
 });
