@@ -110,7 +110,7 @@ describe('ES6 promises', () => {
             // loadSomething
             //     .then((data) => { 
             //         // got the data
-            //         return loadSomethingElse();
+            //         return loadSomethingElse(); , I dont think we need to return it if we are not dependant of its data in the next .then()
             //     })
             //     .then((data) => {
             //         // got the data
