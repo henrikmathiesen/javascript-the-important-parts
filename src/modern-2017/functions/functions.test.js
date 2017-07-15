@@ -41,7 +41,7 @@ describe('functions', () => {
     });
 
     describe('function expression', () => {
-        it('must not have a name and is not hoisted', () => {
+        it('must not have a name and is not hoisted, it returns undefined if no return statement', () => {
             const name = function (x, y) {
 
             };
@@ -93,7 +93,7 @@ describe('functions', () => {
     });
 
     describe('arrow functions - they have a shortes syntax than function expressions and does not bind its own this, they cannot be used as constructors', () => {
-        it('can not have a name and is not hoisted', () => {
+        it('can not have a name and is not hoisted, it returns undefined if no return statement', () => {
             const name = (x, y) => {
 
             }
@@ -309,7 +309,7 @@ describe('functions', () => {
             /*
                 # Regarding call and apply
                     Note: While the syntax of this function is almost identical to that of apply(), 
-                    the fundamental difference is that call() accepts an argument list, while apply() 
+                    the fundamental difference is that call(this, arg1, arg2) accepts an argument list, while apply(this,[1,2]) 
                     accepts a single array of arguments.
                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
             */
