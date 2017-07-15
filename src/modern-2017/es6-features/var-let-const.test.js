@@ -1,6 +1,4 @@
-// TODO
-
-describe('var, let and const', () => {
+describe('ES6 - var, let and const', () => {
     describe('how var worked', () => {
         it('is NOT scoped to curly braces', () => {
             for (var i = 1; i < 11; i++) {
