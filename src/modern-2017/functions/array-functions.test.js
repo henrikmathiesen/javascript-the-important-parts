@@ -155,7 +155,7 @@ describe('functions - array functions', () => {
             expect(allSwitches02AreOn).toEqual(true);
         });
 
-        it('should know that some() tests that atleast one element in an array pass a test provided by a callback function, returns a boolean', () => { 
+        it('should know that some() tests that atleast one element in an array pass a test provided by a callback function, returns a boolean', () => {
             const theSwitches01 = ['off', 'on', 'on'];
             const theSwitches02 = ['on', 'on', 'on'];
 
@@ -164,6 +164,43 @@ describe('functions - array functions', () => {
 
             expect(atleastOneSwitchIsOff01).toEqual(true);
             expect(atleastOneSwitchIsOff02).toEqual(false);
+        });
+    });
+
+    describe('Lets do some fun stuff', () => {
+        it('should calculate how much damage all attacks do to player 1', () => {
+            const dragonEvents = [
+                {
+                    type: 'attack',
+                    value: 12,
+                    target: 'player1'
+                },
+                {
+                    type: 'yawn',
+                    value: 40
+                },
+                {
+                    type: 'eat',
+                    target: 'horse'
+                },
+                {
+                    type: 'attack',
+                    value: 23,
+                    target: 'player2'
+                },
+                {
+                    type: 'attack',
+                    value: 12,
+                    target: 'player1'
+                }
+            ];
+
+            const totalDamageOnPlayer1 = dragonEvents
+                .filter(event => event.type === 'attack')
+                .filter(attacks => attacks.target === 'player1')
+                .reduce((total, x) => total + x.value, 0);
+
+            expect(totalDamageOnPlayer1).toEqual(24);
         });
     });
 });
