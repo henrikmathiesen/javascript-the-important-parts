@@ -308,7 +308,7 @@ describe('functions', () => {
 
             /*
                 # Regarding call and apply
-                    Note: While the syntax of this function is almost identical to that of apply(), 
+                    Note: While the syntax of these function is almost identical
                     the fundamental difference is that call(this, arg1, arg2) accepts an argument list, while apply(this,[1,2]) 
                     accepts a single array of arguments.
                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call

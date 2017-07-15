@@ -55,7 +55,7 @@ describe('ES6 - destructuring, break apart stuff into variables', () => {
 
     it('should know that destructuring makes it easier to work with objects passed to functions - with destructuring', () => {
         const makeSound = ({ species = 'animal', sound }) => {
-            return `The ${species} says ${sound}`
+            return `The ${species} says ${sound}`;
         };
 
         const actual = makeSound({
