@@ -19,6 +19,8 @@ https://www.youtube.com/playlist?list=PL0zVEGEvSaeHBZFy6Q8731rcwk0Gtuxub , funfu
 https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84 , funfunfunction Functional programming in JavaScript Playlist  
 https://www.youtube.com/playlist?list=PL0zVEGEvSaeHJppaRLrqjeTPnCH6vw-sm , funfunfunction ES6 JavaScript Features Playlist
 
+https://davidwalsh.name/spread-operator
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions  
@@ -27,6 +29,10 @@ https://john-dugan.com/javascript-functions-vs-methods/
 
 https://stackoverflow.com/questions/7137397/module-exports-vs-exports-in-node-js  
 http://www.hacksparrow.com/node-js-exports-vs-module-exports.html
+
+http://2ality.com/2016/01/private-data-classes.html , private variables in ES6 classes
+
+https://medium.com/@pyrolistical/factory-functions-pattern-in-depth-356d14801c91
 
 
 ## jest

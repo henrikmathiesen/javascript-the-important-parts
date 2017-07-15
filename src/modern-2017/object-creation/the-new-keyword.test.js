@@ -82,8 +82,8 @@ describe('The new keyword as applied to functions, to get a class behavior', () 
             Object.setPrototypeOf(obj, constructor.prototype);          // it takes the prototype of the constructor function and set as prototype for the new empty object
             const argsArray = Array.prototype.slice.apply(arguments);   // middle step, convert arguments object to a proper array
             return constructor.apply(obj, argsArray.slice(1)) || obj    // it calls the constructor function (apply), with the new object assigned to the this variable and passed in arguments
-            // it returns the constructor return (if it returns something, which it really shouldnt, bad practice)
-            // or it returns the object
+                                                                        // it returns the constructor return (if it returns something, which it really shouldnt, bad practice)
+                                                                        // or it returns the object
         }
 
         const crockford = spawn(Person, 'semicolons!');
