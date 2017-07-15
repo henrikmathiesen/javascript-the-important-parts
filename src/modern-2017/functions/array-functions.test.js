@@ -2,7 +2,7 @@ describe('functions - array functions', () => {
 
     // also see filter in higher-order-functions.test.js
 
-    describe('map, just like filter it is a higher order function', () => {
+    describe('map(), just like filter it is a higher order function', () => {
 
         const animals = [
             {
@@ -19,7 +19,7 @@ describe('functions - array functions', () => {
             }
         ];
 
-        it('should know that map creates a new transformed array (with the same length!) - here we want an array of all the names of the animals', () => {
+        it('should know that map() creates a new transformed array (with the same length!) - here we want an array of all the names of the animals', () => {
             const names = animals.map(animal => animal.name);
             expect(names.length).toEqual(3);
             expect(names[0]).toEqual('Fluffy');
@@ -51,7 +51,7 @@ describe('functions - array functions', () => {
                 .map(dragon => dragon.name)
                 .map(name => name.length);
 
-            expect(dragonNamesLength).toEqual([6,6]);
+            expect(dragonNamesLength).toEqual([6, 6]);
         });
 
         it('should know its flexibility', () => {
@@ -86,7 +86,7 @@ describe('functions - array functions', () => {
 
     });
 
-    describe('reduce, just like filter it is a higher order function, it is the multi tool of array transformations', () => {
+    describe('reduce(), just like filter() it is a higher order function, it is the multi tool of array transformations', () => {
         it('should be able to summarize all the amounts', () => {
             const nums = [1, 2, 3];
 
@@ -127,9 +127,44 @@ describe('functions - array functions', () => {
         });
     });
 
+    describe('find() vs filter() - find returns the value of the first element in the array that satisfies the provided testing function, filter returns an array', () => {
+        it('should know that find is good for finding one item in an array, but does not work in IE bellow edge', () => {
+            const myArray = [1, 2, 3, 4, 5];
+            const isBigEnough = myArray.find(n => n > 3);
 
-    // TODO: every() some() find()
+            expect(isBigEnough).toEqual(4);
+        });
 
+        it('should know that the same can be accomplished with filter (it will hower not stop until the end, and it will return an array)', () => {
+            const myArray = [1, 2, 3, 4, 5];
+            const isBigEnough = myArray.filter(n => n > 3)[0];
 
+            expect(isBigEnough).toEqual(4);
+        });
+    });
+
+    describe('every() and some()', () => {
+        it('should know that every() tests that ALL elements in an array pass a test provided by a callback function, returns a boolean', () => {
+            const theSwitches01 = ['off', 'on', 'on'];
+            const theSwitches02 = ['on', 'on', 'on'];
+
+            const allSwitches01AreOn = theSwitches01.every(x => x === 'on');
+            const allSwitches02AreOn = theSwitches02.every(x => x === 'on');
+
+            expect(allSwitches01AreOn).toEqual(false);
+            expect(allSwitches02AreOn).toEqual(true);
+        });
+
+        it('should know that some() tests that atleast one element in an array pass a test provided by a callback function, returns a boolean', () => { 
+            const theSwitches01 = ['off', 'on', 'on'];
+            const theSwitches02 = ['on', 'on', 'on'];
+
+            const atleastOneSwitchIsOff01 = theSwitches01.some(x => x === 'off');
+            const atleastOneSwitchIsOff02 = theSwitches02.some(x => x === 'off');
+
+            expect(atleastOneSwitchIsOff01).toEqual(true);
+            expect(atleastOneSwitchIsOff02).toEqual(false);
+        });
+    });
 });
 
