@@ -34,7 +34,8 @@ http://2ality.com/2016/01/private-data-classes.html , private variables in ES6 c
 
 https://medium.com/@pyrolistical/factory-functions-pattern-in-depth-356d14801c91  
 https://medium.com/javascript-scene/common-misconceptions-about-inheritance-in-javascript-d5d9bab29b0a  
-https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9
+https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9  
+https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e
 
 
 ## jest
