@@ -90,7 +90,7 @@ describe('Factory functions in depth - as a replacement for ES6 classes', () => 
             expect(greeter.get()).toEqual('Hello Foo!');
         });
 
-        it('could provide proper ES getter and setter', () => { 
+        it('could provide proper ES getter and setter', () => {
             const Greeter = () => {
                 let _message = 'Hello World!';
 
@@ -111,9 +111,43 @@ describe('Factory functions in depth - as a replacement for ES6 classes', () => 
             greeter.message = 'Hello Foo!';
 
             expect(greeter.message).toEqual('Hello Foo!');
+        });
 
-            // It is impossible to access the _message variable from outside of the Factory Function. 
-            // Data is kept private. Difference instances of greeter will have their own private copy of _message and will not conflict.
+        // It is impossible to access the _message variable from outside of the Factory Function. 
+        // Data is kept private. Difference instances of greeter will have their own private copy of _message and will not conflict.
+    });
+
+    describe('Composition', () => {
+        it('should know that we can compose a new object from several others', () => {
+            const Greeter = () => {
+                return {
+                    greet() {
+                        return 'Saying Hello';
+                    }
+                }
+            };
+
+            const Gesturer = () => {
+                return {
+                    wave() {
+                        return 'Waving Hello';
+                    }
+                }
+            };
+
+            // We create one object from each factory function
+            const greeter = Greeter();
+            const gesturer = Gesturer();
+
+            // We need a waving greeter
+            const wavingGreetr = Object.assign({}, greeter, gesturer);
+
+            // it can greet and wave
+            expect(wavingGreetr.greet()).toEqual('Saying Hello');
+            expect(wavingGreetr.wave()).toEqual('Waving Hello');
+            
+            expect(wavingGreetr).not.toBe(greeter);
+            expect(wavingGreetr).not.toBe(gesturer);
         });
     });
 });
