@@ -32,7 +32,8 @@ http://www.hacksparrow.com/node-js-exports-vs-module-exports.html
 
 http://2ality.com/2016/01/private-data-classes.html , private variables in ES6 classes
 
-https://medium.com/@pyrolistical/factory-functions-pattern-in-depth-356d14801c91
+https://medium.com/@pyrolistical/factory-functions-pattern-in-depth-356d14801c91  
+https://medium.com/javascript-scene/common-misconceptions-about-inheritance-in-javascript-d5d9bab29b0a
 
 
 ## jest
