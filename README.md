@@ -37,6 +37,8 @@ https://medium.com/javascript-scene/common-misconceptions-about-inheritance-in-j
 https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9  
 https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e
 
+https://github.com/joshburgess/not-awesome-es6-classes
+
 
 ## jest
 
