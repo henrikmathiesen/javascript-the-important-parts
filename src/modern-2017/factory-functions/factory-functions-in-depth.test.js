@@ -173,7 +173,9 @@ describe('Factory functions in depth - as a replacement for ES6 classes', () => 
 
             expect(fooBar.baz()).toEqual('from Bar');
         });
+    });
 
+    describe('sharing state', () => {
         it('should explore sharing state between the different objects -- we need to get back to this', () => {
             const Greeter = () => {
                 let _message = 'hello';
