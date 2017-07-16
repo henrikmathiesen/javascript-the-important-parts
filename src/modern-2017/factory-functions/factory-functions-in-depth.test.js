@@ -212,7 +212,7 @@ describe('Factory functions in depth - as a replacement for ES6 classes', () => 
             expect(wavingGreeter.message).toEqual('hello'); // its still hello here
         });
 
-        it('should try share state with a reference to self', () => {
+        it('should try share state with a reference to self -- we need to get back to this', () => {
             const Greeter = () => {
                 let _message = 'hello';
 
