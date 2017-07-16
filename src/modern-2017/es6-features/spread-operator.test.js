@@ -1,5 +1,3 @@
-// TODO
-
 describe('ES6 - the spread operator', () => {
 
     describe('Spread arrays', () => {
