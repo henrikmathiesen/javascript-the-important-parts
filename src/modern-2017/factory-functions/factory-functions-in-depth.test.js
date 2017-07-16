@@ -140,14 +140,121 @@ describe('Factory functions in depth - as a replacement for ES6 classes', () => 
             const gesturer = Gesturer();
 
             // We need a waving greeter
-            const wavingGreetr = Object.assign({}, greeter, gesturer);
+            const wavingGreeter = Object.assign({}, greeter, gesturer); // it assigns greeter to an empty object, then gesturer to an object that contains greeter
 
             // it can greet and wave
-            expect(wavingGreetr.greet()).toEqual('Saying Hello');
-            expect(wavingGreetr.wave()).toEqual('Waving Hello');
-            
-            expect(wavingGreetr).not.toBe(greeter);
-            expect(wavingGreetr).not.toBe(gesturer);
+            expect(wavingGreeter.greet()).toEqual('Saying Hello');
+            expect(wavingGreeter.wave()).toEqual('Waving Hello');
+
+            expect(wavingGreeter).not.toBe(greeter);
+            expect(wavingGreeter).not.toBe(gesturer);
+        });
+
+        it('should know that if there are conflicts, the right most object wins', () => {
+            const Foo = () => {
+                return {
+                    baz() {
+                        return 'from Foo';
+                    }
+                }
+            };
+
+            const Bar = () => {
+                return {
+                    baz() {
+                        return 'from Bar';
+                    }
+                }
+            };
+
+            const foo = Foo();
+            const bar = Bar();
+            const fooBar = Object.assign({}, foo, bar);
+
+            expect(fooBar.baz()).toEqual('from Bar');
+        });
+
+        it('should explore sharing state between the different objects -- we need to get back to this', () => {
+            const Greeter = () => {
+                let _message = 'hello';
+
+                return {
+                    set message(message) {
+                        _message = message;
+                    },
+                    get message() {
+                        return _message;
+                    },
+                    greet() {
+                        return 'Saying ' + _message;
+                    }
+                }
+            };
+
+            const Gesturer = () => {
+                const _message = 'hello';
+
+                return {
+                    get message() {
+                        return _message;
+                    },
+                    wave() {
+                        return 'Waving ' + _message;
+                    }
+                }
+            };
+
+            const greeter = Greeter();
+            const gesturer = Gesturer();
+
+            const wavingGreeter = Object.assign({}, greeter, gesturer);
+            greeter.message = 'bon jour';
+            expect(wavingGreeter.message).toEqual('hello'); // its still hello here
+        });
+
+        it('should try share state with a reference to self', () => {
+            const Greeter = () => {
+                let _message = 'hello';
+
+                const self = {
+                    set message(message) {
+                        _message = message;
+                    },
+                    get message() {
+                        return _message;
+                    },
+                    greet() {
+                        return 'Saying ' + self.message;
+                    }
+                }
+
+                return self;
+            };
+
+            const Gesturer = () => {
+                const _message = 'hello';
+
+                const self = {
+                    set message(message) {
+                        _message = message;
+                    },
+                    get message() {
+                        return _message;
+                    },
+                    greet() {
+                        return 'Waving ' + self.message;
+                    }
+                }
+
+                return self;
+            };
+
+            const greeter = Greeter();
+            const gesturer = Gesturer();
+
+            const wavingGreeter = Object.assign({}, greeter, gesturer);
+            greeter.message = 'bon jour';
+            expect(wavingGreeter.message).toEqual('hello'); // its still hello here
         });
     });
 });
