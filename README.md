@@ -1,6 +1,6 @@
 # javascript-the-important-parts
 
-Here we explore the JavaScript language.
+Here we explore the JavaScript language. Some of it will be repetition, of course.
 
 ## legacy
 
