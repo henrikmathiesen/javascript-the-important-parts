@@ -42,6 +42,9 @@ https://www.sitepoint.com/javascript-object-creation-patterns-best-practises/
 https://www.quora.com/Are-ES6-classes-bad-for-JavaScript  
 http://vimeo.com/97419177 , Douglas Crockford
 
+https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3  
+https://medium.com/javascript-scene/the-two-pillars-of-javascript-pt-2-functional-programming-a63aa53a41a4
+
 
 ## jest
 
