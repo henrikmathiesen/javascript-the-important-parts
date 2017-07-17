@@ -28,6 +28,7 @@ describe('Repetition - object creation', () => {
 
     it('should be able to do and understand a constructor function', () => {
         function Animal(sound) {
+            const _privateVarInConstructorFunction = 'foo';
             this.sound = sound; // these things are local to each instance
         }
 
@@ -63,12 +64,53 @@ describe('Repetition - object creation', () => {
         // - this.sound is local to each instance
         // - Animal.prototype is set as internal prototype (__proto__) of each instance
         // - __proto__ is a place, by, reference, that each instance can delegate functionality to
+        // - prototype are things that are put in other objects __proto__
+        // - A change in the prototype will be reflected in all instances
         // - Since this is not a pattern we are going to use, we are going to skipp inheritence.
         // - But see legacy/constructors-prototypes-and-the-new-keyword.test.js , at the bottom, for more info on inheritence
     });
 
     it('should be able to do and understand Object.create', () => {
+        const proto = {
+            talk: function(){
+                return 'hi'
+            }
+        };
 
+        // Object.create returns an object, in this case obj
+        // obj now has a reference to proto and can delegate to it
+        // Object.create takes a second argument, a propertiesObject, which I havent seen in realistic examples
+        const obj = Object.create(proto);
+
+        // just like dog has a reference to Animal.prototype, obj has a reference to proto - through its __proto__
+        expect(Object.getPrototypeOf(obj)).toBe(proto);
+        expect(obj.talk).toBeDefined();
+
+        // We can not use this check as proto is not callable
+        //expect(obj instanceof proto).toEqual(false);
+
+        // since proto:s __proto_ is Object:s prototype, obj can use these methods
+        expect(obj.toString).toBeDefined();
+        expect(Object.getPrototypeOf(proto)).toBe(Object.prototype);
+
+        // We add new things to obj
+        obj.foo = 'bar';
+
+        // And create another object which proto is set to obj
+        const another = Object.create(obj);
+        expect(Object.getPrototypeOf(another)).toBe(obj);
+
+        // another now has access to both talk and foo, as well as Object:s prototype
+        expect(another.talk).toBeDefined();
+        expect(another.foo).toEqual('bar');
+        expect(another.toString).toBeDefined();
+
+        // finally, we can skip setting a proto for our object by passing null
+        const noFriendsInHighPlaces = Object.create(null);
+        expect(Object.getPrototypeOf(noFriendsInHighPlaces)).toBe(null);
+        
+        // It does not even get Object:s prototype(?)
+        expect(noFriendsInHighPlaces.toString).not.toBeDefined();
     });
 
 });
