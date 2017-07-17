@@ -74,7 +74,9 @@ describe('Repetition - object creation', () => {
         const proto = {
             talk: function () {
                 // in here, this will point to the instance
-                return 'hi'
+                // but can only populate foo via the instance if it should be accessible on the instance(?)
+                // in other words, can not do this.foo = 'something' and get it in an instance
+                return this.foo;
             }
         };
 
@@ -97,6 +99,9 @@ describe('Repetition - object creation', () => {
 
         // We add new things to obj
         obj.foo = 'bar';
+
+        // since talk() on proto returns this.foo, we get it here
+        expect(obj.talk()).toEqual('bar');
 
         // And create another object which proto is set to obj
         const another = Object.create(obj);
