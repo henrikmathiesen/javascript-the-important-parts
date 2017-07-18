@@ -175,8 +175,8 @@ describe('Factory functions in depth - as a replacement for ES6 classes', () => 
         });
     });
 
-    describe('sharing state', () => {
-        it('should explore sharing state between the different objects -- we need to get back to this', () => {
+    describe('sharing data', () => {
+        it('should explore sharing data between objects', () => {
             const Greeter = () => {
                 let _message = 'hello';
 
@@ -189,6 +189,12 @@ describe('Factory functions in depth - as a replacement for ES6 classes', () => 
                     },
                     greet() {
                         return 'Saying ' + _message;
+                    },
+                    // copied by value
+                    prim: 'x',
+                    // copied by reference
+                    obj: {
+                        foo: 'bar'
                     }
                 }
             };
@@ -212,51 +218,16 @@ describe('Factory functions in depth - as a replacement for ES6 classes', () => 
             const wavingGreeter = Object.assign({}, greeter, gesturer);
             greeter.message = 'bon jour';
             expect(wavingGreeter.message).toEqual('hello'); // its still hello here
-        });
 
-        it('should try share state with a reference to self -- we need to get back to this', () => {
-            const Greeter = () => {
-                let _message = 'hello';
+            // primitives are copied as values, so no change in wavingGreeter
+            expect(wavingGreeter.prim).toEqual('x');
+            greeter.prim = 'y';
+            expect(wavingGreeter.prim).toEqual('x');
 
-                const self = {
-                    set message(message) {
-                        _message = message;
-                    },
-                    get message() {
-                        return _message;
-                    },
-                    greet() {
-                        return 'Saying ' + self.message;
-                    }
-                }
-
-                return self;
-            };
-
-            const Gesturer = () => {
-                const _message = 'hello';
-
-                const self = {
-                    set message(message) {
-                        _message = message;
-                    },
-                    get message() {
-                        return _message;
-                    },
-                    greet() {
-                        return 'Waving ' + self.message;
-                    }
-                }
-
-                return self;
-            };
-
-            const greeter = Greeter();
-            const gesturer = Gesturer();
-
-            const wavingGreeter = Object.assign({}, greeter, gesturer);
-            greeter.message = 'bon jour';
-            expect(wavingGreeter.message).toEqual('hello'); // its still hello here
+            // obj is copied by reference so this works
+            expect(wavingGreeter.obj.foo).toEqual('bar');
+            greeter.obj.foo = 'baz';
+            expect(wavingGreeter.obj.foo).toEqual('baz');
         });
     });
 });
