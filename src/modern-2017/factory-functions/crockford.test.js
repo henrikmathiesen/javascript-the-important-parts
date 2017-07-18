@@ -32,7 +32,8 @@ describe('This is how Douglas Crockford creates objects', () => {
             Benefits
             - There is no worry that some code somewhere changes the prototype (that will effect all objects that delegates to the prototype)
             - There is no this
-            - It is clean and will execute fast. There is very little confusion.
+            - It is clean and will execute fast. 
+            - There is very little confusion.
         */
     });
 
