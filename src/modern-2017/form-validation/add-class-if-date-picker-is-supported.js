@@ -1,5 +1,11 @@
 (function () {
 
+    var thereIsAtLeastOneForm = document.getElementsByTagName('form').length > 0;
+
+    if(!thereIsAtLeastOneForm) {
+        return;
+    }
+
     // if browser sanatizes the value, it means date is supported
 
     var input = document.createElement('input')
