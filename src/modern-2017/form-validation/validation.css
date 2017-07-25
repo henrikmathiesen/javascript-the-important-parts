@@ -7,9 +7,27 @@
     margin-bottom: 5px;
 }
 
+/* 
+This would give validation message on each keystroke
+.ip-form-control:invalid {
+    outline: 1px solid red;
+} */
+
+/* This gives it on blur, better */
 .ip-form-control:not(:focus):invalid {
     outline: 1px solid red;
+} 
+
+.ip-form-control-error {
+    color:red;
+    display: none;
 }
+
+.ip-form-control:not(:focus):invalid + .ip-form-control-error {
+    display: block;
+}
+
+
 
 /* if datepicker is supported (we check that with javascript, then no help text is required) */
 .ip-form-date-is-supported .ip-form-datepicker-help {

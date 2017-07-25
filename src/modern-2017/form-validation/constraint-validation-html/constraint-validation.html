@@ -15,7 +15,8 @@
                 <span class="ip-form-label">
                     Name (reqired)
                 </span>
-                <input type="text" required class="ip-form-control">
+                <input type="text" title="test" required class="ip-form-control">
+                <!-- title will appear in validation message IF input has a pattern -->
             </label>
         </div>
         <div class="ip-form-group">
@@ -24,7 +25,6 @@
                     Foo (5-10 characters)
                 </span>
                 <input type="text" title="5-10 characters" minlength="5" maxlength="10" class="ip-form-control">
-                <!-- title will appear in validation message -->
                 <!-- minlength not working in IE11 nor FF43, can use pattern as a fallback though (regex) -->
             </label>
         </div>
@@ -41,7 +41,7 @@
                 <span class="ip-form-label">
                     A number
                 </span>
-                <input type="number" pattern="[-+]?[0-9]" class="ip-form-control">
+                <input type="number" title="pattern" pattern="[-+]?[0-9]" class="ip-form-control">
                 <!-- IE11 does not validate number, we use pattern as fallback, IE11 does not respect that either -->
             </label>
         </div>
