@@ -45,7 +45,9 @@ http://vimeo.com/97419177 , Douglas Crockford
 https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3  
 https://medium.com/javascript-scene/the-two-pillars-of-javascript-pt-2-functional-programming-a63aa53a41a4
 
-https://css-tricks.com/form-validation-part-1-constraint-validation-html/ , 2017
+https://css-tricks.com/form-validation-part-1-constraint-validation-html/ , 2017  
+https://medium.com/samsung-internet-dev/native-form-validation-part-1-bf8e35099f1d , 2017  
+https://github.com/cferdinandi/validate
 
 
 ## jest
