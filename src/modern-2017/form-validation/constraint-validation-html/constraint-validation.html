@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Constraint Validation HTML">
+    <title>Constraint Validation HTML</title>
+    <link rel="stylesheet" href="constraint-validation.css">
+  </head>
+  <body>
+    <h1>Constraint Validation HTML</h1>
+    <form>
+        <div class="ip-form-group">
+            <label>
+                <span class="ip-form-label">
+                    Name (reqired)
+                </span>
+                <input type="text" required class="ip-form-control">
+            </label>
+        </div>
+        <div class="ip-form-group">
+            <label>
+                <span class="ip-form-label">
+                    Foo (5-10 characters)
+                </span>
+                <input type="text" title="5-10 characters" minlength="5" maxlength="10" class="ip-form-control">
+                <!-- title will appear in validation message -->
+                <!-- minlength and maxlength not working in IE11 nor FF43, can use pattern as a fallback though (regex) -->
+            </label>
+        </div>
+        <div class="ip-form-group">
+            <label>
+                <span class="ip-form-label">
+                    A number
+                </span>
+                <input type="number" class="ip-form-control" pattern="[-+]?[0-9]">
+                <!-- IE11 does not validate number, we use pattern as fallback, IE11 does not respect that either -->
+            </label>
+        </div>
+        <div class="ip-form-group">
+            <label>
+                <span class="ip-form-label">
+                    A date <span class="ip-form-datepicker-help">(yyyy-mm-dd)</span>
+                </span>
+                <input type="date" class="ip-form-control">
+                <!-- IE11 nor Firefox display datepicker nor validates the date-->
+            </label>
+        </div>
+        <div class="ip-form-group">
+            <button>Submit</button>
+        </div>
+    </form>
+
+    <script src="constraint-validation.js"></script>
+  </body>
+</html>

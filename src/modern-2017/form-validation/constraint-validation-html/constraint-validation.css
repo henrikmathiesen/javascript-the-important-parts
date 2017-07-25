@@ -1,0 +1,17 @@
+.ip-form-group + .ip-form-group {
+    margin-top: 15px;
+}
+
+.ip-form-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.ip-form-control:not(:focus):invalid {
+    outline: 1px solid red;
+}
+
+/* if datepicker is supported (we check that with javascript, then no help text is required) */
+.ip-form-date-is-supported .ip-form-datepicker-help {
+    display: none;
+}

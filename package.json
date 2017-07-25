@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "serve":"http-server -p 1337"
+    "serve":"http-server ./src -p 1337"
   },
   "devDependencies": {
     "http-server": "0.10.0",
