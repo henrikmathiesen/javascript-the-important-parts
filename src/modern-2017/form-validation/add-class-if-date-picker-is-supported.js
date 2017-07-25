@@ -1,5 +1,7 @@
 (function () {
 
+    'use strict';
+
     var thereIsAtLeastOneForm = document.getElementsByTagName('form').length > 0;
 
     if(!thereIsAtLeastOneForm) {
