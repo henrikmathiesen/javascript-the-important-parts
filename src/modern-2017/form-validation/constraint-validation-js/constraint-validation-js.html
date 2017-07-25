@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Constraint Validation HTML">
-    <title>Constraint Validation HTML</title>
+    <meta name="description" content="Constraint Validation JS">
+    <title>Constraint Validation JS</title>
     <link rel="stylesheet" href="../validation.css">
   </head>
   <body>
-    <h1>Constraint Validation HTML</h1>
+    <h1>Constraint Validation JS</h1>
     <form>
         <div class="ip-form-group">
             <label>
@@ -24,8 +24,6 @@
                     Foo (5-10 characters)
                 </span>
                 <input type="text" title="5-10 characters" minlength="5" maxlength="10" class="ip-form-control">
-                <!-- title will appear in validation message -->
-                <!-- minlength not working in IE11 nor FF43, can use pattern as a fallback though (regex) -->
             </label>
         </div>
         <div class="ip-form-group">
@@ -34,7 +32,6 @@
                     A number
                 </span>
                 <input type="number" class="ip-form-control" pattern="[-+]?[0-9]">
-                <!-- IE11 does not validate number, we use pattern as fallback, IE11 does not respect that either -->
             </label>
         </div>
         <div class="ip-form-group">
@@ -59,7 +56,6 @@
                     A date <span class="ip-form-datepicker-help">(yyyy-mm-dd)</span>
                 </span>
                 <input type="date" class="ip-form-control">
-                <!-- IE11 nor FF43 display datepicker nor validates the date-->
             </label>
         </div>
         <div class="ip-form-group">
@@ -67,8 +63,7 @@
         </div>
     </form>
 
-    <!-- Iam not too happy about the browser support -->
-
     <script src="../add-class-if-date-picker-is-supported.js"></script>
+    <script src="constraint-validation-api.js"></script>
   </body>
 </html>
