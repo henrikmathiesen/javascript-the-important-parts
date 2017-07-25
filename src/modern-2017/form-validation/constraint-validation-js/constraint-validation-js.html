@@ -11,13 +11,13 @@
 
 <body>
     <h1>Constraint Validation JS</h1>
-    <form>
+    <form class="ip-js-validate">
         <div class="ip-form-group">
             <label>
                 <span class="ip-form-label">
                     Name (reqired)
                 </span>
-                <input type="text" required class="ip-form-control">
+                <input type="text" required class="ip-form-control ip-js-form-control-name">
             </label>
         </div>
         <div class="ip-form-group">
@@ -25,7 +25,7 @@
                 <span class="ip-form-label">
                     Foo (5-10 characters)
                 </span>
-                <input type="text" title="5-10 characters" minlength="5" maxlength="10" class="ip-form-control">
+                <input type="text" title="5-10 characters" minlength="5" maxlength="10" class="ip-form-control ip-js-form-control-foo">
             </label>
         </div>
         <div class="ip-form-group">
@@ -33,7 +33,7 @@
                 <span class="ip-form-label">
                     A number
                 </span>
-                <input type="number" class="ip-form-control" pattern="[-+]?[0-9]">
+                <input type="number" pattern="[-+]?[0-9]" class="ip-form-control ip-js-form-control-number">
             </label>
         </div>
         <div class="ip-form-group">
@@ -41,7 +41,7 @@
                 <span class="ip-form-label">
                     Email
                 </span>
-                <input type="email" class="ip-form-control">
+                <input type="email" class="ip-form-control ip-js-form-control-email">
             </label>
         </div>
         <div class="ip-form-group">
@@ -49,7 +49,7 @@
                 <span class="ip-form-label">
                     URL
                 </span>
-                <input type="url" class="ip-form-control">
+                <input type="url" class="ip-form-control ip-js-form-control-url">
             </label>
         </div>
         <div class="ip-form-group">
@@ -57,7 +57,7 @@
                 <span class="ip-form-label">
                     A date <span class="ip-form-datepicker-help">(yyyy-mm-dd)</span>
                 </span>
-                <input type="date" class="ip-form-control">
+                <input type="date" class="ip-form-control ip-js-form-control-date">
             </label>
         </div>
         <div class="ip-form-group">
@@ -66,6 +66,7 @@
     </form>
 
     <script src="../add-class-if-date-picker-is-supported.js"></script>
+    <script src="../add-no-validate-to-form.js"></script> <!-- even though we added novalidate to form, css pseudo invalid still matches though -->
     <script src="constraint-validation-api.js"></script>
 </body>
 
