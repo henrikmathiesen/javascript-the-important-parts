@@ -97,4 +97,11 @@ describe('ES6 classes - javascript does not have classes, ES6 classes is just su
         expect(Animal.talk).not.toBeDefined();
     });
 
+    it('should know that ES6 classes are not hoisted', () => {
+        //const foo = new Foo();
+        //expect(foo).not.toBeDefined(); // reference error
+
+        class Foo {}
+    });
+
 });
