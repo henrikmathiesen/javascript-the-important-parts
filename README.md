@@ -49,7 +49,8 @@ https://css-tricks.com/form-validation-part-1-constraint-validation-html/ , 2017
 https://medium.com/samsung-internet-dev/native-form-validation-part-1-bf8e35099f1d , 2017  
 https://github.com/cferdinandi/validate
 
-https://webpack.js.org/guides/
+https://webpack.js.org/guides/  
+https://webpack.github.io/docs/stylesheets.html
 
 
 ## jest
