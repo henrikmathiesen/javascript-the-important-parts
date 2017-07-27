@@ -8,7 +8,8 @@
 
 */
 
-var path = require('path');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     //entry: path.resolve(__dirname, 'src/index.js'),   // 1 entry point
@@ -16,6 +17,11 @@ module.exports = {
         app: path.resolve(__dirname, 'src/index.js'),
         app2: path.resolve(__dirname, 'src/index-2.js'),
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Output Management'
+        })
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'                    // OBS [name]
