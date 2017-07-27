@@ -11,8 +11,8 @@
       "jquery": true
     },
     "rules": {
-      "no-console": 0,
-      "no-debugger": 0,
+      "no-console": 1,
+      "no-debugger": 1,
       "linebreak-style": 0,
       "indent": ["error", 4]
     }
