@@ -35,7 +35,8 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: [
-                    'babel-loader'
+                    'babel-loader',                                         // 2) compile to ES5
+                    'eslint-loader'                                         // 1) lint ES6
                 ]
             },
             {

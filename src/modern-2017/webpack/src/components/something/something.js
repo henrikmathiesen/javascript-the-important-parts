@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import './something.scss';
 
-export const something = function () {
+export default () => {
     console.log('something');
 
     $('#js-something').text('something');

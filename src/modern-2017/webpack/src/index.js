@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import './index.scss';
-import { something } from './components';
+import something from './components';
 
-var element = '<div class="js-test">test</div>'
+const element = '<div class="js-test">test</div>';
 $('body').append(element);
 
 $('.js-test').css('color', 'pink');
