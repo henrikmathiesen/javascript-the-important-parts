@@ -11,10 +11,14 @@
 var path = require('path');
 
 module.exports = {
-    entry: path.resolve(__dirname, 'src/index.js'),
+    //entry: path.resolve(__dirname, 'src/index.js'),   // 1 entry point
+    entry: {                                            // 2 entry points
+        app: path.resolve(__dirname, 'src/index.js'),
+        app2: path.resolve(__dirname, 'src/index-2.js'),
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'                    // OBS [name]
     },
     module: {
         rules: [
