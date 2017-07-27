@@ -7,16 +7,20 @@
     "url": "git+https://github.com/henrikmathiesen/javascript-the-important-parts.git"
   },
   "scripts": {
+    "postinstall": "npm run copy:fa",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "serve": "http-server ./src -p 1337",
-    "webpack": "webpack --config src/modern-2017/webpack/webpack.config.js"
+    "webpack": "webpack --config src/modern-2017/webpack/webpack.config.js",
+    "copy:fa": "//copyfiles -u 3 node_modules/font-awesome/fonts/*.* ./src/modern-2017/webpack/src/fonts"
   },
   "devDependencies": {
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
     "babel-preset-env": "1.6.0",
+    "copyfiles": "1.2.0",
     "css-loader": "0.28.4",
+    "file-loader": "0.11.2",
     "http-server": "0.10.0",
     "jest": "20.0.4",
     "node-sass": "4.5.3",
@@ -25,6 +29,7 @@
     "webpack": "3.4.1"
   },
   "dependencies": {
+    "font-awesome": "4.7.0",
     "jquery": "3.2.1",
     "lodash": "4.17.4",
     "lodash.curry": "4.1.1",

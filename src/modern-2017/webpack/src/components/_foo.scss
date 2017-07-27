@@ -1,0 +1,8 @@
+.ip-foo {
+    border: $ip-some-border;
+    width: 300px;
+    height: 350px;
+    background-image: url('./img/kitten-300x350.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}

@@ -18,10 +18,12 @@ module.exports = {
     },
     module: {
         rules: [
-            { 
-                test: /\.js$/, 
-                exclude: /node_modules/, 
-                loader: "babel-loader" 
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    'babel-loader'
+                ]
             },
             {
                 test: /\.scss$/,
@@ -29,6 +31,12 @@ module.exports = {
                     'style-loader',     // 3) injects css into DOM
                     'css-loader',       // 2) enables import css file
                     'sass-loader'       // 1) compiles sass to css
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
                 ]
             }
         ]

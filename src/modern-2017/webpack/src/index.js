@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import './style.scss';
+import './index.scss';
 
 var element = '<div class="js-test">test</div>'
 $('body').append(element);
