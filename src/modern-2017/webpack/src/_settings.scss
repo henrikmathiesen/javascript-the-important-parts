@@ -1,6 +1,10 @@
 // font awesome
 
-//$fa-font-path: './fonts';
+// Fonts are copied from node_modules into src folder. This variable will override fontawesome:s variable and webpack will handle the rest
+// $fa-font-path: './fonts';
+
+// Fonts are NOT copied from node_modules, by us. They are imported and webpack handles the rest.
+$fa-font-path: '~font-awesome/fonts';
 
 // app
 
