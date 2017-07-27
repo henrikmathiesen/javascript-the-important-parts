@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import './index.scss';
+import { something } from './components';
 
 var element = '<div class="js-test">test</div>'
 $('body').append(element);
@@ -13,3 +14,7 @@ $('.js-test').css('color', 'pink');
 const myArray = ['adam', 'bertil'];
 const [adam] = myArray;
 console.log(adam);
+
+// import
+
+something();
