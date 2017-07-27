@@ -65,24 +65,32 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_scss__);
 
 
+var _jquery = __webpack_require__(1);
 
-var element = '<div class="js-test">test</div>'
-__WEBPACK_IMPORTED_MODULE_0_jquery___default()('body').append(element);
+var _jquery2 = _interopRequireDefault(_jquery);
 
-__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-test').css('color', 'pink');
+__webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var element = '<div class="js-test">test</div>';
+(0, _jquery2.default)('body').append(element);
+
+(0, _jquery2.default)('.js-test').css('color', 'pink');
 
 // console.log(window.element); element is not in global scope, which is good
 
+// ES6 features (this do work in Chrome59 and FF43, but not IE11 -- we fix that with Babel)
+
+var myArray = ['adam', 'bertil'];
+var adam = myArray[0];
+
+console.log(adam);
 
 /***/ }),
 /* 1 */

@@ -1,3 +1,13 @@
+/*
+
+    Webpack has 4 core concepts
+    - entry
+    - output
+    - loaders
+    - plugins
+
+*/
+
 var path = require('path');
 
 module.exports = {
@@ -8,6 +18,11 @@ module.exports = {
     },
     module: {
         rules: [
+            { 
+                test: /\.js$/, 
+                exclude: /node_modules/, 
+                loader: "babel-loader" 
+            },
             {
                 test: /\.scss$/,
                 use: [

@@ -50,7 +50,9 @@ https://medium.com/samsung-internet-dev/native-form-validation-part-1-bf8e35099f
 https://github.com/cferdinandi/validate
 
 https://webpack.js.org/guides/  
-https://webpack.github.io/docs/stylesheets.html
+https://webpack.github.io/docs/stylesheets.html  
+https://stackoverflow.com/questions/42768174/whats-the-difference-between-babel-preset-es2015-and-babel-preset-env  
+https://gitlab.com/gitlab-org/gitlab-ce/issues/28026
 
 
 ## jest
