@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import './index.scss';
-import something from './components';
+//import something from './components';
 
 const element = '<div class="js-test">test</div>';
 $('body').append(element);
