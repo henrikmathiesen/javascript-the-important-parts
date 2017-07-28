@@ -2,4 +2,4 @@
 // export * from './something/something';
 
 // This only works for default exports
-// export { something as default } from './something/something';
+export { default } from './something/something';

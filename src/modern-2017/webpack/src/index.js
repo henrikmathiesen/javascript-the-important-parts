@@ -1,11 +1,11 @@
 import $ from 'jquery';
 import './index.scss';
-//import something from './components';
+import something from './components';
 
 const element = '<div class="js-test">test</div>';
 $('body').append(element);
 
-$('.js-test').css('color', 'pink');
+$('.js-test').css('color', 'navy');
 
 // console.log(window.element); element is not in global scope, which is good
 
