@@ -52,7 +52,8 @@ https://github.com/cferdinandi/validate
 https://webpack.js.org/guides/  
 https://webpack.github.io/docs/stylesheets.html  
 https://stackoverflow.com/questions/42768174/whats-the-difference-between-babel-preset-es2015-and-babel-preset-env  
-https://gitlab.com/gitlab-org/gitlab-ce/issues/28026
+https://gitlab.com/gitlab-org/gitlab-ce/issues/28026 , babel-preset-env  
+http://cheng.logdown.com/posts/2016/03/25/679045 , webpack sourcemaps
 
 
 ## jest

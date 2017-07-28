@@ -1,10 +1,16 @@
 /*
 
     Webpack has 4 core concepts
-    - entry
-    - output
-    - loaders
-    - plugins
+        - entry
+        - output
+        - loaders
+        - plugins
+
+    Webpack devServer: compiled code is kept in memory (not written to disc), this is good for performance
+
+    About sourcemaps: many options, read about them here
+        - http://cheng.logdown.com/posts/2016/03/25/679045
+        - https://webpack.js.org/configuration/devtool/
 
 */
 
@@ -18,6 +24,7 @@ module.exports = {
         app: path.resolve(__dirname, 'src/index.js'),
         app2: path.resolve(__dirname, 'src/index-2.js'),
     },
+    devtool: 'cheap-module-eval-source-map',
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
