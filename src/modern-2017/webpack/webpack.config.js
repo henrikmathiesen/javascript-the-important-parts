@@ -14,11 +14,15 @@
 
     autoprefixer gets its options from entry in package.json, that entry is shared with other tools like babel
 
-    dev/prod builds
+    prod builds
+        - webpack -p from command line
+            * runs minification
+            * sets NODE_ENV to 'process.env.NODE_ENV': JSON.stringify('production')
+                * it converts the object to a string (just like envify), https://webpack.js.org/guides/production/#node-environment-variable
+            * NODE_ENV is NOT set within this config file however, so can not check against it here (without setting it again before running webpack)
+            * If we want to send parameters to this config, we can do it like this: 
         - can use 2 config files, webpack.dev.config.js and webpack.prod.config.js, and use either from npm script
-        - can also use this approach https://webpack.js.org/guides/production/#simple-approach
-        - TODO: in this config though, since dev and prod are very similiar (and dev-server is started from npm script), lets use another aproach
-            * sending in -p, handles env similar to https://www.npmjs.com/package/envify
+        
 
 */
 
