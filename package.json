@@ -11,9 +11,10 @@
     "test:watch": "jest --watchAll",
     "serve": "http-server ./src -p 1337",
     "webpack:dev": "webpack --config src/modern-2017/webpack/webpack.config.js",
-    "webpack:watch":"webpack-dev-server --config src/modern-2017/webpack/webpack.config.js --open"
+    "webpack:watch": "webpack-dev-server --config src/modern-2017/webpack/webpack.config.js --open"
   },
   "devDependencies": {
+    "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
     "babel-preset-env": "1.6.0",
@@ -28,6 +29,7 @@
     "http-server": "0.10.0",
     "jest": "20.0.4",
     "node-sass": "4.5.3",
+    "postcss-loader": "2.0.6",
     "sass-loader": "6.0.6",
     "style-loader": "0.18.2",
     "webpack": "3.4.1",
@@ -39,5 +41,9 @@
     "lodash": "4.17.4",
     "lodash.curry": "4.1.1",
     "lodash.reject": "4.6.0"
-  }
+  },
+  "browserslist": [
+    "last 3 versions",
+    "IE 11"
+  ]
 }

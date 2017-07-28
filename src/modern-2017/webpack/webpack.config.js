@@ -12,11 +12,25 @@
         - http://cheng.logdown.com/posts/2016/03/25/679045
         - https://webpack.js.org/configuration/devtool/
 
+    autoprefixer gets its options from entry in package.json, that entry is shared with other tools like babel
+
 */
 
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+
+const postCssLoader = {
+    loader: 'postcss-loader',
+    options: {
+        plugins: function () {
+            return [
+                autoprefixer()
+            ]
+        }
+    }
+};
 
 module.exports = {
     //entry: path.resolve(__dirname, 'src/index.js'),                       // 1 entry point
@@ -49,8 +63,9 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    'style-loader',                                         // 3) injects css into DOM
-                    'css-loader',                                           // 2) enables import css file
+                    'style-loader',                                         // 4) injects css into DOM
+                    'css-loader',                                           // 3) enables import css file
+                    postCssLoader,                                          // 2) post css transforms
                     'sass-loader'                                           // 1) compiles sass to css
                 ]
             },
