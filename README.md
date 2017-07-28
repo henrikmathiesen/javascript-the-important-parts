@@ -50,12 +50,13 @@ https://medium.com/samsung-internet-dev/native-form-validation-part-1-bf8e35099f
 https://github.com/cferdinandi/validate
 
 https://webpack.js.org/guides/  
-https://webpack.github.io/docs/stylesheets.html  
+https://webpack.js.org/plugins/extract-text-webpack-plugin/  
 https://stackoverflow.com/questions/42768174/whats-the-difference-between-babel-preset-es2015-and-babel-preset-env  
 https://gitlab.com/gitlab-org/gitlab-ce/issues/28026 , babel-preset-env  
 http://cheng.logdown.com/posts/2016/03/25/679045 , webpack sourcemaps  
 https://stackoverflow.com/questions/40761473/using-autoprefixer-with-postcss-in-webpack-2-x  
-https://github.com/ai/browserslist , share supported browsers between tools like babel and autoprefixer
+https://github.com/ai/browserslist , share supported browsers between tools like babel and autoprefixer  
+https://stackoverflow.com/questions/44113359/passing-command-line-arguments-to-webpack-config-js
 
 
 ## jest

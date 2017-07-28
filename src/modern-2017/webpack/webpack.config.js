@@ -14,6 +14,12 @@
 
     autoprefixer gets its options from entry in package.json, that entry is shared with other tools like babel
 
+    dev/prod builds
+        - can use 2 config files, webpack.dev.config.js and webpack.prod.config.js, and use either from npm script
+        - can also use this approach https://webpack.js.org/guides/production/#simple-approach
+        - TODO: in this config though, since dev and prod are very similiar (and dev-server is started from npm script), lets use another aproach
+            * sending in -p, handles env similar to https://www.npmjs.com/package/envify
+
 */
 
 const path = require('path');
