@@ -33,18 +33,19 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+let isProduction;
 
 const styleLoader = {
     loader: 'style-loader',
     options: {
-        sourceMap: true
+        sourceMap: !isProduction
     }
 };
 
 const cssLoader = {
     loader: 'css-loader',
     options: {
-        sourceMap: true
+        sourceMap: !isProduction
     }
 };
 
@@ -56,21 +57,23 @@ const postCssLoader = {
                 autoprefixer()
             ]
         },
-        sourceMap: true
+        sourceMap: !isProduction
     }
 };
 
 const sassLoader = {
     loader: 'sass-loader',
     options: {
-        sourceMap: true
+        sourceMap: !isProduction
     }
 };
 
 // instead of assigning an object to module.exports, we use a function that takes an env variable, and return an object. The env variable is used to toggle dev/prod
 
 module.exports = (env) => {
-    const isProduction = env === 'production';
+    isProduction = env === 'production';
+
+    console.log(isProduction);
 
     return {
         //entry: path.resolve(__dirname, 'src/index.js'),                       // 1 entry point
@@ -78,7 +81,7 @@ module.exports = (env) => {
             app: path.resolve(__dirname, 'src/index.js'),
             app2: path.resolve(__dirname, 'src/index-2.js'),
         },
-        devtool: 'source-map',                                                  // cheap-module-eval-source-map is the faster option, but does not work with CSS
+        devtool: !isProduction ? 'source-map' : false,                          // cheap-module-eval-source-map is the faster option, but does not work with CSS
         plugins: [
             new CleanWebpackPlugin(['dist']),
             new ExtractTextPlugin('[name].bundle.css'),                         // extract css to seperate file, instead of injecting into DOM (see loader also)
