@@ -87,6 +87,7 @@ module.exports = (env) => {
             new CleanWebpackPlugin(['dist']),
             new ExtractTextPlugin('[name].bundle.css'),                         // extract css to seperate file, instead of injecting into DOM (see loader also)
             new HtmlWebpackPlugin({
+                hash: isProduction,
                 //chunks: ['app'],                                              // only include app.js and app.css but not app2.js and app2.css
                 template: path.resolve(__dirname, 'src/index.html')             // copy to dist and inject scripts/css (need to handle this together with templating)
             }),
