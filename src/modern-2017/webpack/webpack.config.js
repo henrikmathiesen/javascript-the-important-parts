@@ -77,19 +77,19 @@ module.exports = (env) => {
     console.log('isProduction: ' + isProduction);
 
     return {
-        //entry: path.resolve(__dirname, 'src/index.js'),                       // 1 entry point
-        entry: {                                                                // 2 entry points
+        //entry: path.resolve(__dirname, 'src/index.js'),                                           // 1 entry point
+        entry: {                                                                                    // 2 entry points
             app: path.resolve(__dirname, 'src/index.js'),
             app2: path.resolve(__dirname, 'src/index-2.js'),
         },
-        devtool: !isProduction ? 'source-map' : false,                          // cheap-module-eval-source-map is the faster option, but does not work with CSS
+        devtool: !isProduction ? 'source-map' : false,                                              // cheap-module-eval-source-map is the faster option, but does not work with CSS
         plugins: [
             new CleanWebpackPlugin(['dist']),
-            new ExtractTextPlugin('[name].bundle.css'),                         // extract css to seperate file, instead of injecting into DOM (see loader also)
+            new ExtractTextPlugin('[name].bundle.css'),                                             // extract css to seperate file, instead of injecting into DOM (see loader also)
             new HtmlWebpackPlugin({
-                hash: isProduction,
-                //chunks: ['app'],                                              // only include app.js and app.css but not app2.js and app2.css
-                template: path.resolve(__dirname, 'src/index.html')             // copy to dist and inject scripts/css (need to handle this together with templating)
+                //hash: isProduction,                                                               // hash with query string (will be the same for all files, and hashes for all files update when 1 file change, not optimal)
+                //chunks: ['app'],                                                                  // only include app.js and app.css but not app2.js and app2.css
+                template: path.resolve(__dirname, 'src/index.html')                                 // copy to dist and inject scripts/css (need to handle this together with templating)
             }),
             // new HtmlWebpackPlugin, for another html file (and can include different chunks into it)
 
@@ -100,7 +100,13 @@ module.exports = (env) => {
         ],
         output: {
             path: path.resolve(__dirname, 'dist'),
-            filename: '[name].bundle.js'                                        // OBS [name] for generated entry point file
+
+            // OBS [name] for generated entry point file , chunkhash hashes filename and is unique to each file
+            // A change will change hash for the changed file and for common (since common contains webpack boiler plate that always change)
+            // Unfortunately common also includes jquery, and since common gets a new hash with every file change, the whole jQuery lib is cache busted, not optimal
+            // There is a way to solve this by chunking jQuery to its own file by adding it to an entry in this config, but I think it is not really worth the trouble
+            // remembering to add each library to that array. Read more here: https://webpack.js.org/guides/caching/#extracting-boilerplate
+            filename: isProduction ? '[name].[chunkhash].bundle.js' : '[name].bundle.js'
         },
         module: {
             rules: [
@@ -108,17 +114,17 @@ module.exports = (env) => {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     use: [
-                        'babel-loader',                                         // 2) compile to ES5
-                        'eslint-loader'                                         // 1) lint ES6
+                        'babel-loader',                                                             // 2) compile to ES5
+                        'eslint-loader'                                                             // 1) lint ES6
                     ]
                 },
                 {
                     test: /\.scss$/,
                     // use: [
-                    //     'style-loader',                                      // 4) injects css into DOM
-                    //     'css-loader',                                        // 3) enables import css file
-                    //     postCssLoader,                                       // 2) post css transforms
-                    //     'sass-loader'                                        // 1) compiles sass to css
+                    //     'style-loader',                                                          // 4) injects css into DOM
+                    //     'css-loader',                                                            // 3) enables import css file
+                    //     postCssLoader,                                                           // 2) post css transforms
+                    //     'sass-loader'                                                            // 1) compiles sass to css
                     // ]
 
                     // extract css to seperate file, instead of injecting into DOM (see plugins also)
