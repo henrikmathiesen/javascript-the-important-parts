@@ -20,8 +20,10 @@
             * sets NODE_ENV to 'process.env.NODE_ENV': JSON.stringify('production')
                 * it converts the object to a string (just like envify), https://webpack.js.org/guides/production/#node-environment-variable
             * NODE_ENV is NOT set within this config file however, so can not check against it here (without setting it again before running webpack)
-            * If we want to send parameters to this config, we can do it like this: 
-        - can use 2 config files, webpack.dev.config.js and webpack.prod.config.js, and use either from npm script
+            * If we want to send parameters to this config, we can do it like we are doing it here in this file
+        - sending parameters into this file is a way to toggle dev/prod builds
+        - another alternative is to use 2 config files, webpack.dev.config.js and webpack.prod.config.js, and use either from npm script, but that would lead to duplicate code between the two
+        - a third option is to to use 3 config files: a common, a dev and a prod and then merge them. https://webpack.js.org/guides/production/#node-environment-variable
         
 
 */
