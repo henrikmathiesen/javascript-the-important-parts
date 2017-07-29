@@ -67,69 +67,75 @@ const sassLoader = {
     }
 };
 
-module.exports = {
-    //entry: path.resolve(__dirname, 'src/index.js'),                       // 1 entry point
-    entry: {                                                                // 2 entry points
-        app: path.resolve(__dirname, 'src/index.js'),
-        app2: path.resolve(__dirname, 'src/index-2.js'),
-    },
-    devtool: 'source-map',                                                  // cheap-module-eval-source-map is the faster option, but does not work with CSS
-    plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new ExtractTextPlugin('[name].bundle.css'),                         // extract css to seperate file, instead of injecting into DOM (see loader also)
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src/index.html')             // copy to dist and inject scripts/css (need to handle this together with templating)
-        })
-        // new HtmlWebpackPlugin, for another html file
-    ],
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js'                                        // OBS [name] for generated entry point file
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: [
-                    'babel-loader',                                         // 2) compile to ES5
-                    'eslint-loader'                                         // 1) lint ES6
-                ]
-            },
-            {
-                test: /\.scss$/,
-                // use: [
-                //     'style-loader',                                         // 4) injects css into DOM
-                //     'css-loader',                                           // 3) enables import css file
-                //     postCssLoader,                                          // 2) post css transforms
-                //     'sass-loader'                                           // 1) compiles sass to css
-                // ]
+// instead of assigning an object to module.exports, we use a function that takes an env variable, and return an object. The env variable is used to toggle dev/prod
 
-                // extract css to seperate file, instead of injecting into DOM (see plugins also)
-                use: ExtractTextPlugin.extract({
-                    fallback: styleLoader,
+module.exports = (env) => {
+    const isProduction = env === 'production';
+
+    return {
+        //entry: path.resolve(__dirname, 'src/index.js'),                       // 1 entry point
+        entry: {                                                                // 2 entry points
+            app: path.resolve(__dirname, 'src/index.js'),
+            app2: path.resolve(__dirname, 'src/index-2.js'),
+        },
+        devtool: 'source-map',                                                  // cheap-module-eval-source-map is the faster option, but does not work with CSS
+        plugins: [
+            new CleanWebpackPlugin(['dist']),
+            new ExtractTextPlugin('[name].bundle.css'),                         // extract css to seperate file, instead of injecting into DOM (see loader also)
+            new HtmlWebpackPlugin({
+                template: path.resolve(__dirname, 'src/index.html')             // copy to dist and inject scripts/css (need to handle this together with templating)
+            })
+            // new HtmlWebpackPlugin, for another html file
+        ],
+        output: {
+            path: path.resolve(__dirname, 'dist'),
+            filename: '[name].bundle.js'                                        // OBS [name] for generated entry point file
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
                     use: [
-                        cssLoader,
-                        postCssLoader,
-                        sassLoader
+                        'babel-loader',                                         // 2) compile to ES5
+                        'eslint-loader'                                         // 1) lint ES6
                     ]
-                })
-            },
-            {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    'file-loader'
-                ]
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                    'file-loader'
-                ]
-            }
-        ]
-    },
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist')
+                },
+                {
+                    test: /\.scss$/,
+                    // use: [
+                    //     'style-loader',                                      // 4) injects css into DOM
+                    //     'css-loader',                                        // 3) enables import css file
+                    //     postCssLoader,                                       // 2) post css transforms
+                    //     'sass-loader'                                        // 1) compiles sass to css
+                    // ]
+
+                    // extract css to seperate file, instead of injecting into DOM (see plugins also)
+                    use: ExtractTextPlugin.extract({
+                        fallback: styleLoader,
+                        use: [
+                            cssLoader,
+                            postCssLoader,
+                            sassLoader
+                        ]
+                    })
+                },
+                {
+                    test: /\.(png|svg|jpg|gif)$/,
+                    use: [
+                        'file-loader'
+                    ]
+                },
+                {
+                    test: /\.(woff|woff2|eot|ttf|otf)$/,
+                    use: [
+                        'file-loader'
+                    ]
+                }
+            ]
+        },
+        devServer: {
+            contentBase: path.resolve(__dirname, 'dist')
+        }
     }
 }

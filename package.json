@@ -10,7 +10,8 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "serve": "http-server ./src -p 1337",
-    "webpack:dev": "webpack --config src/modern-2017/webpack/webpack.config.js",
+    "webpack:dev": "webpack --env=development --config src/modern-2017/webpack/webpack.config.js",
+    "webpack:prod": "webpack --env=production --config src/modern-2017/webpack/webpack.config.js",
     "webpack:watch": "webpack-dev-server --config src/modern-2017/webpack/webpack.config.js --open"
   },
   "devDependencies": {
