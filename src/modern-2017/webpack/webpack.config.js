@@ -29,6 +29,7 @@
 */
 
 const path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
@@ -86,9 +87,15 @@ module.exports = (env) => {
             new CleanWebpackPlugin(['dist']),
             new ExtractTextPlugin('[name].bundle.css'),                         // extract css to seperate file, instead of injecting into DOM (see loader also)
             new HtmlWebpackPlugin({
+                //chunks: ['app'],                                              // only include app.js and app.css but not app2.js and app2.css
                 template: path.resolve(__dirname, 'src/index.html')             // copy to dist and inject scripts/css (need to handle this together with templating)
+            }),
+            // new HtmlWebpackPlugin, for another html file (and can include different chunks into it)
+
+            // jQuery is included in both app.js and app2, this extracts out common code (jQuery) and puts it in common.js, common.js is injected into index.html
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'common'
             })
-            // new HtmlWebpackPlugin, for another html file
         ],
         output: {
             path: path.resolve(__dirname, 'dist'),
