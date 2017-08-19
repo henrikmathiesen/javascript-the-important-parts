@@ -12,7 +12,7 @@
         - http://cheng.logdown.com/posts/2016/03/25/679045
         - https://webpack.js.org/configuration/devtool/
 
-    autoprefixer gets its options from entry in package.json, that entry is shared with other tools like babel
+    babel and autoprefixer get their options from entry in package.json, other tools might share these options as well
 
     prod builds
         - webpack -p from command line

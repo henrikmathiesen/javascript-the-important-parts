@@ -2,6 +2,9 @@ import $ from 'jquery';
 import './index.scss';
 import something from './components';
 
+// we import only foo, but both foo and bar are defined in the bundle
+import { foo } from './how-much-will-import';
+
 const element = '<div class="js-test">test</div>';
 $('body').append(element);
 
