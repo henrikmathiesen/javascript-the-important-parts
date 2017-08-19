@@ -17,6 +17,8 @@ import $ from 'jquery';
 //  * That aproach requires that lodash.curry is installed seperatly
 //  * Can however write import curry from 'lodash/curry', that does not require curry to be installed seperatly
 //  * See "If it helps anyone else, we found a Babel plugin that provides a useful workaround in the meantime" in https://github.com/webpack/webpack/issues/2867
+//
+// The concept of tree shaking was ment to resolve this issue https://webpack.js.org/guides/tree-shaking/
 
 import './index.scss';
 import something from './components';
