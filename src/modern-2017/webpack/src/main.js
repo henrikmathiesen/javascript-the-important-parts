@@ -20,7 +20,7 @@ import $ from 'jquery';
 //
 // The concept of tree shaking was ment to resolve this issue https://webpack.js.org/guides/tree-shaking/
 
-import './index.scss';
+import './main.scss';
 import something from './components';
 
 // How much will import 1) we import only foo, but both foo and bar are defined in the bundle

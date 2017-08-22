@@ -82,10 +82,10 @@ module.exports = (env) => {
     console.log('isProduction: ' + isProduction);
 
     return {
-        //entry: path.resolve(__dirname, 'src/index.js'),                                                   // 1 entry point
+        //entry: path.resolve(__dirname, 'src/main.js'),                                                    // 1 entry point
         entry: {                                                                                            // 2 entry points
-            app: path.resolve(__dirname, 'src/index.js'),
-            app2: path.resolve(__dirname, 'src/index-2.js'),
+            app: path.resolve(__dirname, 'src/main.js'),
+            app2: path.resolve(__dirname, 'src/main-2.js'),
         },
         devtool: !isProduction ? 'source-map' : false,                                                      // cheap-module-eval-source-map is the faster option, but does not work with CSS
         plugins: [

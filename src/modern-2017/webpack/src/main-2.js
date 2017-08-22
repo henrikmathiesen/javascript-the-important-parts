@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import './index-2.scss';
+import './main-2.scss';
 
 $('.js-nothing').css('color', 'orange');
 
