@@ -36,6 +36,13 @@ describe('ES6 - the spread operator', () => {
             expect(arr02).not.toBe(arr01);                  // they are however not the same instance
         });
 
+        it('should test slice one more time', () => { 
+            const array01 = ['adam', 'bertil', 'ceasar'];
+            const array02 = [...array01.slice(1)];
+
+            expect(array02).toEqual(['bertil', 'ceasar']);
+        });
+
         it('should know that with both the above methods only the first level is copied, deeper levels are still references', () => {
             const a = [[1], [2], [3]];
             const b = [...a];
