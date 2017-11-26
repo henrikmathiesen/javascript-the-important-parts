@@ -3,7 +3,7 @@ describe('Object.create is a static method on the Object prototype, it creates a
     /*
         Why does Object.create exist?
         - It is more natural to the prototype model than the "new" keyword (see the-new-keyword.test.js)
-        - Douglas crockford wrote Object.create and got it into the language
+        - Douglas Crockford wrote Object.create and got it into the language
         - Object.setPrototypeOf(dog, animal) is a very bad idea from a performance standpoint, Object.create is more perfomant
         - It is a nice strait forward way to work with objects and a sort of inheritance (really delegation to another object)
     */
