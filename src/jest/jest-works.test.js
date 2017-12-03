@@ -1,6 +1,6 @@
 const Person = require('./Person'); // commonJs actually works in Jest without plugins (ES6 modules does not work however)
 
-fdescribe('jest should test our code in here (no babel needed yet!)', () => {
+describe('jest should test our code in here (no babel needed yet!)', () => {
 
     it('can do a simple unit test', () => {
         expect(true).toEqual(true);
