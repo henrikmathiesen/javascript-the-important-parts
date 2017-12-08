@@ -42,7 +42,7 @@ describe('We need some refreshing and labbing with these', () => {
             const name = 'Kalle';
             const printSomething = name && 'something';
 
-            expect(printSomething).toEqual('something', 'Since left hand is truthy, right hand it will be picked');
+            expect(printSomething).toEqual('something', 'Since left hand is truthy, right hand will be picked');
         });
 
         it('should know the && operator as a condition -- B1', () => {
