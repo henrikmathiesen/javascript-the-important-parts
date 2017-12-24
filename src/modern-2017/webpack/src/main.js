@@ -42,3 +42,6 @@ console.log(adam);
 // import
 
 something();
+
+// webpack makes this accessible
+console.log(process.env.NODE_ENV);
