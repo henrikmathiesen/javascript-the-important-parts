@@ -43,5 +43,32 @@ console.log(adam);
 
 something();
 
-// webpack makes this accessible
+/* 
+    Webpack makes process.env.NODE_ENV accessible (see also comments in webpack.config.js)
+    Will be undefined in dev mode
+    Will be string production in prod mode
+    
+    The expression
+    if(process.env.NODE_ENV !== 'production') {
+        // run some debug code
+    }
+    
+    Will, in dev mode, become (after webpack has processed the javascript)
+    if(undefined !== 'production') {
+        // run some debug code
+    }
+    This will be true and the debug code is run
+
+    Will, in prod mode, become (after webpack has processed the javascript)
+    if('production' !== 'production') {
+        // run some debug code
+    }
+    This will always be false. A minifier (in webpacks toolschain or another plugin like Gulp)
+    will see that this expression is always false and will remove the dead code, thus saving space
+
+    However, writing !== 'production' as a string everywhere doesnt feel like a good practice.
+    I would like to put that in a static method or similar somewhere, and in that case
+    a minifier would not be able to see that it is dead code. So it is a trade off.
+*/
+
 console.log(process.env.NODE_ENV);
