@@ -1,6 +1,7 @@
+import IHasReviews from './has-reviews.interface';
 import Review from './review.model';
 
-class Game {
+class Game implements IHasReviews {
     name: string;
     rating: number;
     reviews: Review[];
