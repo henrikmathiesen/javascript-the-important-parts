@@ -1,3 +1,4 @@
 node_modules
 src/modern-2017/webpack/dist
+src/typescript/dist
 *.log
