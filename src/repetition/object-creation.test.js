@@ -55,6 +55,9 @@ describe('Repetition - object creation', () => {
         expect(dog.talk()).toEqual('woff');
         expect(cat.talk()).toEqual('meow');
 
+        expect(cat.sound).toEqual('meow');
+        expect(dog.sound).toEqual('woff');
+
         expect(dog instanceof Animal).toEqual(true);
         expect(cat instanceof Animal).toEqual(true);
 
