@@ -100,4 +100,6 @@ describe('Repetition 2 - object creation', () => {
 
     });
 
+    // TODO: factory function
+
 });
