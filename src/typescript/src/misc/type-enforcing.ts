@@ -1,5 +1,6 @@
 import Game from '../models/game.model';
 import IHasInfo from '../models/has-info.interface';
+import IHasMoreInfo from '../models/has-more-info.interface'
 
 const game01 = new Game();
 game01.name = 'Red Dead Redemption';
@@ -19,4 +20,11 @@ class Information implements IHasInfo {
     name: string;
     age: number;
     // We do need to implement the properties
+}
+
+class MoreInformation implements IHasMoreInfo {
+    name: string;
+    age: number;
+    shoeSize: number;
+    // We do need to implement the properties from IHasMoreInfo that extends IHasInfo
 }
