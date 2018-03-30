@@ -32,7 +32,7 @@ describe('Repetition 2 - object creation', () => {
             expect(game.title).toEqual('Fallout');
         });
 
-        it('should know that reference types are not', () => {
+        it('should know that reference types are not local to each instance', () => {
             expect(book.reviews.length).not.toBe(2); // {score:10},{score:10},{score:2},{score:2}
             expect(game.reviews.length).not.toBe(2); // {score:10},{score:10},{score:2},{score:2}
         });
@@ -88,7 +88,7 @@ describe('Repetition 2 - object creation', () => {
             expect(game.reviews.length).toBe(2);
         });
 
-        it('should calculate avarage score', () => { 
+        it('should calculate avarage score', () => {
             book.calculateAvrageScore();
             game.calculateAvrageScore();
 
@@ -100,6 +100,56 @@ describe('Repetition 2 - object creation', () => {
 
     });
 
-    // TODO: factory function
+    describe('factory function', () => {
+
+        const Base = () => {
+
+            const factory = {};
+
+            factory.title = '';
+            factory.reviews = [];
+            factory.score = 0;
+
+            factory.calculateAvrageScore = () => {
+                let score = 0;
+
+                factory.reviews.forEach((review) => {
+                    score += review.score;
+                });
+
+                factory.score = score / factory.reviews.length;
+            };
+
+            return factory;
+
+        };
+
+        const book = Base();
+        const game = Base();
+
+        book.title = 'Brothers Grim';
+        game.title = 'Fallout';
+
+        book.reviews.push({ score: 10 }, { score: 10 });
+        game.reviews.push({ score: 2 }, { score: 2 });
+
+        it('should know that value types are local to each copy of the object', () => {
+            expect(book.title).toEqual('Brothers Grim');
+            expect(game.title).toEqual('Fallout');
+        });
+
+        it('should know that reference types are also local to each copy of the object', () => {
+            expect(book.reviews.length).toBe(2);
+            expect(game.reviews.length).toBe(2);
+        });
+
+        it('should calculate avarage score', () => {
+            book.calculateAvrageScore();
+            game.calculateAvrageScore();
+
+            expect(book.score).toEqual(10);
+            expect(game.score).toEqual(2);
+        });
+    });
 
 });
