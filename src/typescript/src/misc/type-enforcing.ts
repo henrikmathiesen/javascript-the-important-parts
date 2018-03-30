@@ -7,16 +7,16 @@ game01.name = 'Red Dead Redemption';
 
 const game02 = <Game> {
     name: 'Red Dead Redemption'
+    // We dont need to populate more properties on this object
 };
-// We dont need to populate more properties on this object
 
 const info = <IHasInfo> {
     name: 'Adam'
+    // We dont need to populate more properties on this object
 }
-// We dont need to populate more properties on this object
 
 class Information implements IHasInfo {
     name: string;
     age: number;
+    // We do need to implement the properties
 }
-// We do need to implement the properties
