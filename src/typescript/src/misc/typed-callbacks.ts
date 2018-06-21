@@ -39,7 +39,7 @@ getData02(doneCb02);
 // This is yet another way of typing a callback function
 
 interface ICallbackFn {
-    (s: string): void;              // A2) But it dont match this
+    (s: string): void;              // A2) But it doesnt match this
 }
 
 function getData03(doneCb: ICallbackFn) {
