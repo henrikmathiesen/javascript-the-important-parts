@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vanilla JS Bind Event Dynamic</title>
+    <!-- 2) More challange placing it here, we solve it with DOMContentLoaded, see script file -->
+    <script src="./vanilla-js-bind-event-dynamic.js"></script>
+</head>
+<body>
+    <h1>Vanilla JS Bind Event Dynamic</h1>
+
+    <h2>Without dynamic content</h2>
+    <p>
+        Lets first try binding a click event with static content in DOM
+    </p>
+    <div>
+        <button type="button" class="js-static-button">One Static Button</button>
+    </div>
+
+    <hr>
+
+    <h2>With dynamic content</h2>
+    <p>
+        Now we are going to insert a button via JavaScript and bind a click event to it.
+    </p>
+    <div class="js-inject-button"></div>
+
+    <hr>
+
+    <h2>With dynamic content delayed</h2>
+    <p>
+        Now we are going to simulate an ajax call that inserts content to DOM
+    </p>
+    <div class="js-ajax-inject-button"></div>
+    
+    <!-- 1) No problem placing script here, DOM is ready -->
+    <!-- <script src="./vanilla-js-bind-event-dynamic.js"></script> -->
+</body>
+</html>
