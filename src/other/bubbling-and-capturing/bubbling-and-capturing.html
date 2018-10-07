@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bubbling and Capturing</title>
+</head>
+<body>
+    <h1>Bubbling and Capturing</h1>
+
+    <h2>Bubbling</h2>
+    
+    <p class="js-bubbling">
+        <strong>If you click on me (strong tag), the handler on the parent div runs.</strong>
+    </p>
+
+    <p class="js-bubbling-multiple-01">
+        <strong class="js-bubbling-multiple-02">If you click on me (strong tag), the handler on me AND the parent div runs.</strong>
+    </p>
+    
+    <script src="./bubbling-and-capturing.js"></script>
+</body>
+</html>
