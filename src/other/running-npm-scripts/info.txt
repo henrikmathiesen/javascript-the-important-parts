@@ -8,6 +8,8 @@ https://stackoverflow.com/questions/34937724/running-bash-scripts-with-npm/34938
 
 bash ./npm-scripts/foo.sh - works in GIT bash console but not in CMD, only tested on Windows.
 
+node ./npm-scripts/foo.js - does not work, jest is not defined
+
 I dont like it ...
 
 There is however this: https://github.com/kentcdodds/nps

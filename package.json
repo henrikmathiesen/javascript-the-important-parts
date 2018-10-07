@@ -15,7 +15,8 @@
     "webpack:prod": "webpack -p --env=production --config src/modern-2017/webpack/webpack.config.js",
     "webpack:watch": "webpack-dev-server --config src/modern-2017/webpack/webpack.config.js --open",
     "tsc": "tsc --project src/typescript",
-    "foo": "bash ./npm-scripts/foo.sh"
+    "foo": "bash ./npm-scripts/foo.sh",
+    "foo2": "node ./npm-scripts/foo.js"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",
