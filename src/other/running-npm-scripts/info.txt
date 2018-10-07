@@ -1,0 +1,13 @@
+Package json can be a bit bloated when running npm scripts. So lets try remedy that.
+We have tried this, https://github.com/henrikmathiesen/wcag-etc/blob/master/npm-scripts/consolelog.js
+now we are going to try a little bit more. See package.json
+
+Not so simple on Windows
+"Don't do this. Node runs everywhere. Bash does not."
+https://stackoverflow.com/questions/34937724/running-bash-scripts-with-npm/34938559
+
+bash ./npm-scripts/foo.sh - works in GIT bash console but not in CMD, only tested on Windows.
+
+I dont like it ...
+
+There is however this: https://github.com/kentcdodds/nps
