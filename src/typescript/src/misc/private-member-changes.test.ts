@@ -1,5 +1,5 @@
 class Person {
-    private name = 'John Doe';
+    private name = 'John Doe';  // this gets copied to each object (see build code). In typescript we cant access it on the object (although p1['name'] = 'foo' works)
 
     getName() {
         return this.name;
