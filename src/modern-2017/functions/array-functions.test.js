@@ -140,6 +140,9 @@ describe('functions - array functions', () => {
             const isBigEnough = myArray.filter(n => n > 3)[0];
 
             expect(isBigEnough).toEqual(4);
+
+            // If no elements pass the test, an empty array will be returned.
+            // filter() does not mutate the array on which it is called.
         });
     });
 
