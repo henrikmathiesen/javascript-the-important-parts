@@ -15,7 +15,7 @@ describe('ES6 - destructuring, break apart stuff into variables', () => {
     it('should know that destructuring makes it easier to work with objects passed to functions - example A without destructuring', () => {
         const makeSound = (options) => {
             options.species = options.species || 'animal';
-            return `The ${options.species} says ${options.sound}`
+            return `The ${options.species} says ${options.sound}`   // We are using template literals here
         };
 
         const actual = makeSound({
