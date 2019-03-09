@@ -41,7 +41,7 @@
 
     # TYPESCRIPT EVENTS
 
-    ANGULAR EVENTS (see angular-x-rxjs6-plus)
+    ANGULAR EVENTS (see also angular-x-rxjs6-plus)
     
     When doing an Angular app and using (click) from a template, then it doesnt matter if we do
     talk() {  } or talk = () => , in both cases this points to the object
