@@ -32,6 +32,9 @@ describe('this and ts classes', () => {
 
         expect(cat.talk()).toEqual('mow');
         expect(cat.getThis()).toBe(cat);
+
+        // this points to the object when using arrow functions in classes
+        // compare to object notation (see bind-and-this.test.js), where this points to global object for arrow functions
     });
 
 });

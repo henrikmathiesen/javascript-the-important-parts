@@ -62,7 +62,7 @@
     If doing this in a class method then it works
     manual2.addEventListener('click', () => console.log(this.msg));
 
-    Likewise this works if onManual2Click is an arrow function (like talk above)
+    Likewise this works if onManual2Click is an arrow function, onManual2Click = () =>
     manual2.addEventListener('click', this.onManual2Click);
 
 */
