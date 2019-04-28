@@ -38,8 +38,14 @@ describe('date sanity check', () => {
     }
 
     describe('test utility function', () => {
-        it('should remove dashes', () => {
+        it('should remove dashes - 1', () => {
             const d = '2019-04-13';
+            const r = removeDashes(d);
+            expect(r).toBe('20190413');
+        });
+
+        it('should remove dashes - 2', () => {
+            const d = '20190413';
             const r = removeDashes(d);
             expect(r).toBe('20190413');
         });
