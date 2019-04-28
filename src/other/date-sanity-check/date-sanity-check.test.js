@@ -20,7 +20,7 @@ describe('date sanity check', () => {
     // Logic checker (alternative 2)
 
     const lc = v => {
-        d = removeDashes(v);
+        const d = removeDashes(v);
 
         if (d.length !== 8) {
             return false;
