@@ -15,4 +15,10 @@
 
     document.getElementById('js-target').appendChild(p);
 
+    //
+    // Vanilla Way Simpler? No! Error
+
+    // document.getElementById('js-simpler-target')
+    //     .appendChild('<p>Iam text</p>');
+
 })();
