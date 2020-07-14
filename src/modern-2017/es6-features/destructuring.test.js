@@ -29,7 +29,7 @@ describe('ES6 - destructuring, break apart stuff into variables', () => {
         // There are problems with the makeSound function
         // - Repetition, we refer to options alot
         // - It is a bit hard to scan
-        // - It also hard to see what makeSound needs from the function signature
+        // - It is also hard to see what makeSound needs from the function signature
     });
 
     it('should know that destructuring makes it easier to work with objects passed to functions - example B without destructuring', () => {
