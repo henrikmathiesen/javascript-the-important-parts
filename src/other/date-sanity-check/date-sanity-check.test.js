@@ -93,9 +93,15 @@ describe('date sanity check', () => {
                 const r = lc(d);
                 expect(r).toBe(false);
             });
+
+            it('should not be valid - 4', () => {
+                const d = '2021021X';
+                const r = lc(d);
+                expect(r).toBe(false);
+            });
         });
 
-        describe('Passing dates', () => { 
+        describe('Passing dates', () => {
             it('should be valid - 1', () => {
                 const d = '20191201';
                 const r = lc(d);
@@ -116,6 +122,18 @@ describe('date sanity check', () => {
 
             it('should be valid - 4', () => {
                 const d = '20000229';   // leap year, 29:e feb is ok
+                const r = lc(d);
+                expect(r).toBe(true);
+            });
+
+            it('should be valid - 5', () => { 
+                const d = '2021-02-10';
+                const r = lc(d);
+                expect(r).toBe(true);
+            });
+
+            it('should be valid - 6', () => { 
+                const d = '202102-10';  // dashes will be removed, so this is valid
                 const r = lc(d);
                 expect(r).toBe(true);
             });
