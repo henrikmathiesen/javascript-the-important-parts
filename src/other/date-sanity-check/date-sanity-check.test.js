@@ -1,5 +1,13 @@
 describe('date sanity check', () => {
 
+    /* 
+    
+        CHECK for good combination of regex and Is reasonable date (Logic checker)
+            # regular-expressions > basics-04.test.js
+            # my-app > info > valid-date-string-from-user-input.ts
+    
+    */
+
     // We check that a user has not given us a date like 20190475 or 20191301
     // We are going to test with a regex and with logic
     // I think regex will work to an extent, BUT it will not be able to catch leap years where 29 feb is ok
@@ -133,7 +141,7 @@ describe('date sanity check', () => {
             });
 
             it('should be valid - 6', () => { 
-                const d = '202102-10';  // dashes will be removed, so this is valid
+                const d = '202102-10';  // dashes will be removed, so this is valid. For validation in GUI, this should be invalid.
                 const r = lc(d);
                 expect(r).toBe(true);
             });
