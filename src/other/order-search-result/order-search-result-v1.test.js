@@ -51,28 +51,26 @@ describe('order-search-result-v1 - Ranks whole words heigher', () => {
     }
 
     const search = (set, query) => { 
-        return set.filter(s => s.toLowerCase().indexOf(query.toLowerCase()) > -1);
+        const result = set.filter(s => s.toLowerCase().indexOf(query.toLowerCase()) > -1);
+
+        return result.sort((a, b) => {
+            return sortOnMatch(query, a, b);
+        });
     }
 
     it('should sort - 1', () => {
-        const query = 'Äpple';
+        const result = search(set01, 'Äpple');
 
-        const result = search(set01, query);
+        expect(result.length).toBe(7);
+        expect(result[0]).toBe('äpple');                          // Best match (also not case sensitive)
+        expect(result[1]).toBe('Äpple under trädet');             // Ranks whole words heigher
+        expect(result[2]).toBe('Äpplemask');                      // a comes before o
+        expect(result[3]).toBe('Äpplemos');                       // o comes after a
+        expect(result[4]).toBe('Äpplemäsk');                      // ä is working as expected, when ordered
+        expect(result[5]).toBe('Äppleträd');                      // t comes after m
+        expect(result[6]).toBe('Kalles äpple');                   // "Ranks whole words heigher", but this is last, hmm...
 
-        const resultSorted = result.sort((a, b) => {
-            return sortOnMatch(query, a, b);
-        });
-
-        expect(resultSorted.length).toBe(7);
-        expect(resultSorted[0]).toBe('äpple');                          // Best match (also not case sensitive)
-        expect(resultSorted[1]).toBe('Äpple under trädet');             // Ranks whole words heigher
-        expect(resultSorted[2]).toBe('Äpplemask');                      // a comes before o
-        expect(resultSorted[3]).toBe('Äpplemos');                       // o comes after a
-        expect(resultSorted[4]).toBe('Äpplemäsk');                      // ä is working as expected, when ordered
-        expect(resultSorted[5]).toBe('Äppleträd');                      // t comes after m
-        expect(resultSorted[6]).toBe('Kalles äpple');                   // "Ranks whole words heigher", but this is last, hmm...
-
-        expect(set01[0]).not.toBe('äpple');                             // original set not mutated
+        expect(set01[0]).not.toBe('äpple');                       // original set not mutated
     });
 
 });
