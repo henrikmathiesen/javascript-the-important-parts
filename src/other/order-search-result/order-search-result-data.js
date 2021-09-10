@@ -2,11 +2,13 @@ function getSet01() {
     return [
         'Äppleträd',
         'Äpplemos',
-        'Äpple',
+        'äpple',
         'Äpplemask',
         'Äpplemäsk',
         'Kalles äpple',
-        'Äpple under trädet'
+        'Äpple under trädet',
+        'Foo',
+        ''
     ];
 }
 
