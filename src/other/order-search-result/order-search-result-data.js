@@ -14,7 +14,11 @@ function getSet01() {
 
 function getSet02() { 
     return [
-        'foo2'
+        'Galantäpple',
+        'Peppäpple',
+        'Äpplets väg',
+        'Äpplegryta',
+        'Äpp'
     ];
 }
 
