@@ -2,7 +2,7 @@
 
 const searchResultData = require('./order-search-result-data');
 
-describe('order-search-result-v2B', () => {
+describe('order-search-result-v2B - Ranks match earliest in phrase heigher (but with second ordering, like alphabetically)', () => {
 
     let set01 = [];
     let set02 = [];
